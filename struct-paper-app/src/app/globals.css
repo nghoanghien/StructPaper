@@ -1,0 +1,549 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=JetBrains+Mono:wght@400;500&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Eatzy Signature Design Tokens */
+  --primary: #78C841;
+  --secondary: #B4E50D;
+  --warning: #FF9B2F;
+  --danger: #FB4141;
+  --dark: #1A1A1A;
+
+  --bg-primary: #F8F9FA;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #F1F4F7;
+  --bg-card-hover: #FFFFFF;
+  --border-color: #EAECEF;
+  --border-light: #F2F4F7;
+
+  --text-main: #1A1A1A;
+  --text-muted: #64748B;
+  --text-subtle: #94A3B8;
+
+  /* Eatzy Luminous Greens */
+  --eatzy-primary: #78C841;
+  --eatzy-primary-rgb: 120, 200, 65;
+  --eatzy-lime: #B4E50D;
+  --eatzy-lime-rgb: 180, 229, 13;
+  --eatzy-warning: #FF9B2F;
+  --eatzy-danger: #FB4141;
+
+  /* Aliases for badges */
+  --accent-lime: #78C841;
+  --accent-lime-bg: #D9F99D;
+  --accent-lime-text: #14532D;
+
+  --accent-emerald: #10B981;
+  --accent-emerald-bg: #D1FAE5;
+  --accent-emerald-text: #065F46;
+
+  --accent-peach: #FF9B2F;
+  --accent-peach-bg: #FFF3E5;
+  --accent-peach-text: #B45309;
+
+  --accent-indigo: #6366F1;
+  --accent-indigo-bg: #EEF2FF;
+  --accent-indigo-text: #3730A3;
+
+  --accent-rose: #FB4141;
+  --accent-rose-bg: #FEE2E2;
+  --accent-rose-text: #991B1B;
+
+  /* Backward compatible aliases */
+  --pastel-yellow: #B4E50D;
+  --pastel-yellow-hover: #9CCD0A;
+  --pastel-yellow-text: #14532D;
+  --pastel-yellow-subtle: #F4FCE3;
+
+  --pastel-green: #D9F99D;
+  --pastel-green-text: #14532D;
+  --pastel-green-subtle: #EAF7DF;
+
+  --pastel-blue: #EEF2FF;
+  --pastel-blue-text: #3730A3;
+  --pastel-blue-subtle: #EEF2FF;
+
+  /* Journal print colors */
+  --journal-blue: #2B74B7;
+  --journal-blue-light: #EEF4FA;
+  --journal-blue-border: #D0E0F0;
+  --journal-blue-footer: #E4EEF8;
+  --journal-accent: #E65100;
+  --journal-text: #111827;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Universal Clean Focus Styling - ring-4 with blue-200, zero black flicker/flash */
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  outline: none !important;
+  --tw-ring-color: #bfdbfe;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  box-shadow: 0 0 0 0 #bfdbfe;
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):focus,
+textarea:focus,
+select:focus,
+input:not([type="checkbox"]):not([type="radio"]):focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none !important;
+  border-color: #93c5fd !important;
+  /* Tailwind blue-300 */
+  box-shadow: 0 0 0 4px #bfdbfe !important;
+  /* Tailwind ring-4 blue-200 */
+}
+
+
+/* Custom Scrollbar - matching Eatzy */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.16);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.28);
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.no-scrollbar,
+.scrollbar-none {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Eatzy Liquid Glass Navigation Container (from super-admin & restaurant) */
+.liquid-glass-container {
+  background: linear-gradient(135deg, rgba(120, 200, 65, 0.16) 0%, rgba(180, 229, 13, 0.1) 50%, rgba(255, 255, 255, 0.8) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08), 0 0 60px rgba(120, 200, 65, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.liquid-glass-nav-item {
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px;
+  border: none !important;
+}
+
+.liquid-glass-nav-item:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: inset 0 0 20px 14px rgba(255, 255, 255, 0.75) !important;
+  color: #1A1A1A;
+}
+
+.liquid-glass-nav-item.active {
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: inset 0 0 24px 16px rgba(255, 255, 255, 0.9) !important;
+  color: #1A1A1A;
+}
+
+/* Eatzy Soft Cards - 32px Radius & Ambient Lift */
+.soft-card,
+.eatzy-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.soft-card-interactive,
+.eatzy-card-interactive {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.soft-card-interactive:hover,
+.eatzy-card-interactive:hover {
+  border-color: rgba(120, 200, 65, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+}
+
+/* Pill badge */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Eatzy Buttons */
+.btn-pill-lime,
+.btn-eatzy-primary {
+  background-color: #78C841;
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 10px 22px;
+  transition: all 0.2s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.btn-pill-lime:hover,
+.btn-eatzy-primary:hover {
+  background-color: #6eb73b;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(120, 200, 65, 0.45);
+}
+
+.btn-pill-yellow {
+  background-color: #B4E50D;
+  color: #14532D;
+  font-weight: 800;
+  border-radius: 9999px;
+  padding: 10px 22px;
+  transition: all 0.2s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(180, 229, 13, 0.4);
+}
+
+.btn-pill-yellow:hover {
+  background-color: #a0ce09;
+  transform: translateY(-1px);
+}
+
+.btn-pill-green {
+  background-color: #EAF7DF;
+  color: #2D6A12;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 9px 20px;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(120, 200, 65, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-pill-green:hover {
+  background-color: #dcf2ca;
+  transform: translateY(-1px);
+}
+
+.btn-pill-subtle,
+.btn-eatzy-glass {
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 8px 18px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-pill-subtle:hover,
+.btn-eatzy-glass:hover {
+  background-color: #F8F9FA;
+  border-color: rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.btn-pill-dark,
+.btn-eatzy-dark {
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 9px 20px;
+  transition: all 0.2s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 14px rgba(26, 26, 26, 0.2);
+}
+
+.btn-pill-dark:hover,
+.btn-eatzy-dark:hover {
+  background-color: #78C841;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(120, 200, 65, 0.35);
+}
+
+/* Eatzy Segmented Control */
+.segmented-control {
+  background-color: #F0F2F5;
+  padding: 4px;
+  border-radius: 9999px;
+  display: inline-flex;
+  gap: 4px;
+}
+
+.segmented-item {
+  padding: 7px 18px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+}
+
+.segmented-item:hover {
+  color: #1A1A1A;
+}
+
+.segmented-item.active {
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-weight: 700;
+}
+
+/* Journal Typeset Typography */
+.typeset-serif {
+  font-family: 'Merriweather', Georgia, serif;
+}
+
+.typeset-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Journal-specific typesetting: MinionPro substitute = Source Serif 4 */
+.journal-body {
+  font-family: 'Source Serif 4', 'Times New Roman', Georgia, serif;
+  font-size: 9pt;
+  line-height: 1.4;
+}
+
+/* Journal-specific typesetting: MyriadPro substitute = Source Sans 3 */
+.journal-heading {
+  font-family: 'Source Sans 3', 'Arial', 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  color: #2B74B7;
+}
+
+.journal-meta {
+  font-family: 'Source Sans 3', 'Arial', sans-serif;
+  font-size: 8pt;
+}
+
+/* Smooth Section Card Enter & Highlight Animation - Exact inverse of collapse exit */
+@keyframes sectionItemEnter {
+  0% {
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transform: scale(0.95) translateY(-8px);
+  }
+
+  100% {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes sectionHighlightGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(147, 197, 253, 0.8), 0 4px 12px rgba(59, 130, 246, 0.15);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(147, 197, 253, 0.45), 0 8px 20px rgba(59, 130, 246, 0.2);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(147, 197, 253, 0), 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.animate-section-enter {
+  animation: sectionItemEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.section-highlight-glow {
+  animation: sectionHighlightGlow 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Liquid Glass Pill Indicator */
+.liquid-glass-pill {
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.07), inset 0 0 20px 10px rgba(255, 255, 255, 0.9);
+}
+
+/* Smooth Fullscreen Lightbox Animations */
+@keyframes lightboxBackdropIn {
+  0% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+  }
+
+  100% {
+    opacity: 1;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+}
+
+@keyframes lightboxBackdropOut {
+  0% {
+    opacity: 1;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  100% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+  }
+}
+
+@keyframes lightboxContentIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+  }
+
+  70% {
+    transform: scale(1.018) translateY(-2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes lightboxContentOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.9) translateY(12px);
+  }
+}
+
+.animate-lightbox-backdrop-in {
+  animation: lightboxBackdropIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-lightbox-backdrop-out {
+  animation: lightboxBackdropOut 0.24s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.animate-lightbox-content-in {
+  animation: lightboxContentIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-lightbox-content-out {
+  animation: lightboxContentOut 0.24s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+/* Print styling for direct high-fidelity PDF export */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  header,
+  nav,
+  .bottom-nav,
+  button {
+    display: none !important;
+  }
+
+  .a4-sheet {
+    page-break-after: always !important;
+    break-after: page !important;
+    margin: 0 !important;
+    padding: 2.2cm 1.8cm 2cm 1.8cm !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+}

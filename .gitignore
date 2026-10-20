@@ -1,0 +1,57 @@
+# ==========================================
+# StructPaper - Root .gitignore
+# ==========================================
+
+# --- Binaries & Executables ---
+bin/
+*.exe
+*.dll
+*.jar
+*.war
+
+# --- Scratch & Temporary Generation Files ---
+scratch/
+*.bmp
+*.tmp
+
+# --- Java & Gradle (Backend) ---
+build/
+**/build/
+.gradle/
+**/.gradle/
+out/
+**/out/
+struct-paper-backend/bin/
+struct-paper-backend/build/
+struct-paper-backend/.gradle/
+struct-paper-backend/out/
+
+# --- Node & Next.js (Frontend) ---
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+struct-paper-app/node_modules/
+struct-paper-app/.next/
+struct-paper-app/out/
+struct-paper-app/.turbo/
+struct-paper-app/build/
+struct-paper-app/.env*.local
+
+# --- JVM Crash & Runtime Logs ---
+*.log
+hs_err_pid*.log
+replay_pid*.log
+
+# --- IDE & Editor files ---
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# --- OS temporary files ---
+.DS_Store
+Thumbs.db
+Desktop.ini

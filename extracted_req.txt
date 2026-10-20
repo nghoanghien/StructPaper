@@ -1,0 +1,154 @@
+﻿
+
+w:rsidR="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00106AED">Các yêu cầu cốt lõi đề xuất
+w:rsidR="00106AED" w:rsidRPr="00056FC5" w:rsidRDefault="00106AED" w:rsidP="00106AED">
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Nhóm
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Yêu cầu phần mềm
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Input
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">DOCX, DOC; tốt nhất hỗ trợ Word có Track Changes
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Text
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Nhận diện Heading, paragraph, author, affiliation, abstract, keywords, references
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Dàn trang
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Tự động áp dụng template của từng journal/section
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Layout
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">1 cột/2 cột, A4, lề, header/footer, running title, số trang
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Typography
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Font, cỡ chữ, leading, tracking, paragraph spacing, hyphenation
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Hình ảnh
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Import TIFF, PNG, JPEG, EPS, PDF; tự động đặt figure và caption
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Bảng
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Nhận diện bảng Word, xử lý bảng nhiều dòng/cột, bảng ngang, bảng qua trang
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Công thức
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Giữ nguyên MathType/Equation/LaTeX hoặc chuyển thành vector chất lượng cao
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">References
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Vancouver; xử lý citation–reference linking
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Cross-reference
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Tự động cập nhật Figure 1, Table 2, Equation (3), Section 2…
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">DOI/metadata
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Giữ và xuất metadata: title, author, ORCID, affiliation, abstract, keywords, DOI
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">PDF
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Xuất PDF chuẩn publication/prepress
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Online publishing
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Hỗ trợ XML/JATS hoặc dữ liệu có cấu trúc để chuyển sang XML
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Proofreading
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Tạo PDF proof để Editor và Author kiểm tra
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Revision
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Có khả năng cập nhật bài mà không phải dàn trang lại từ đầu
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Template
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Có template riêng cho từng journal
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Automation
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Có batch processing/API/workflow để xử lý nhiều bài
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Quality control
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Preflight: font missing, image resolution, overset text, lỗi link, lỗi numbering…
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00106AED" w:rsidP="00056FC5">1. Template phải đáp ứng được mô hình nhiều journal
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Hệ thống VNUHCM hiện có các journal chuyên ngành:
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Science and Technology Development 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Health Sciences 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Social Sciences and Humanities 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Economics, Business and Law 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Engineering and Technology 
+w:rsidR="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Environment and Earth Sciences 
+w:rsidR="002C3732" w:rsidRPr="00056FC5" w:rsidRDefault="002C3732" w:rsidP="00056FC5">Advanced Research in Natural Sciences
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Ví dụ, VNUHCM Journal of Health Sciences hiện có các loại bài như Research Articles, Commentaries, Corrections, Editorials, Letters, Reviews, Methodologies và Case Reports. 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00A059CE" w:rsidP="00056FC5">Không chỉ có một template cố định.
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00106AED" w:rsidP="00056FC5">2. Xử lý bài Word tốt
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">VNUHCM nhận manuscript chủ yếu từ Word/PDF; ví dụ guideline của STDJ chấp nhận DOC, DOCX và RTF.
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Phần mềm cần xử lý tốt:
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Text
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Title 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Authors 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Affiliations 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Corresponding author 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Abstract 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Keywords 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Heading 1/2/3 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Paragraph 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Block quotation 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Footnote/endnote 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Acknowledgement 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Funding 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Conflict of interest 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">References 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00106AED" w:rsidP="00056FC5">3. Figure và Table là yêu cầu rất lớn
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Guideline hiện tại của VNUHCM/STDJ yêu cầu figure có thể được cung cấp dưới các định dạng như PDF, DOCX, PPTX, EPS, PNG, TIFF, JPEG, BMP; đặc biệt figure vector được khuyến nghị để thuận lợi cho biên tập. 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Vì vậy phần mềm nên có:
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Figure
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">tự động đánh số Figure 1, Figure 2... 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">caption 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">cross-reference 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">anchor figure 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">kiểm tra resolution 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">kiểm tra kích thước 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">xử lý figure full-width 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">xử lý figure trong 1 cột 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">xử lý multi-panel figure: a, b, c, d 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">giữ vector graphics 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">không làm giảm chất lượng hình 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Table
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Table 1, Table 2... 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">tự động caption 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">tự động cross-reference 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">table continuation: 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Table 3 (continued)
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">bảng landscape 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">bảng full-width 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">bảng nhiều trang 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">repeat header row 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">kiểm soát row breaking 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00A059CE">VNUHCM cũng quy định bảng phải được đánh số và trích dẫn theo thứ tự; bảng được tích hợp trong manuscript sẽ được typeset ở bản xuất bản cuối. 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00106AED" w:rsidP="00056FC5">4. Equation
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Đặc biệt với Natural Sciences; Engineering &amp; Technology
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Phần mềm phải xử lý:
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Microsoft Equation 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">MathType 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">LaTeX 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">inline equation 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">display equation 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">equation numbering 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">alignment 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">fractions 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">matrices 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">superscript/subscript 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Greek symbols 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">cross-reference 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Ví dụ:
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Equation (1)
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">nếu equation được thêm/xóa ở giữa thì hệ thống phải tự cập nhật thành:
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Equation (2), Equation (3)...
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00106AED">chứ production editor không phải sửa thủ công từng chỗ.
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00106AED" w:rsidP="009C01D4">5. Reference management
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">VNUHCMJ hiện quy định sử dụng Vancouver style cho references. 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Phần mềm nên xử lý:
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">[1]
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">[2–4]
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">[5,6]
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">[7–10]
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">và tự động:
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">renumber reference 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">reorder bibliography 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">link citation → reference 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">link DOI 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">hyperlink URL 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">xử lý reference thiếu dữ liệu 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">phát hiện citation không có reference 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">phát hiện reference không được cite 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Ví dụ editor xóa Reference 5:
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">[1] [2] [3] [4] [5] [6]
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">→ hệ thống phải tự động chuyển toàn bộ thành:
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">[1] [2] [3] [4] [5]
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00106AED" w:rsidP="00056FC5">6. PDF output
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Đây phải là publication-grade PDF, không chỉ là PDF xuất từ Word.
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">Nên yêu cầu:
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">PDF/X hoặc chuẩn PDF phù hợp production 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">embedded fonts 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">không missing fonts 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">vector graphics được giữ nguyên 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">image resolution đạt chuẩn 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">hyperlink 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">DOI hyperlink 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">ORCID hyperlink 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">CrossMark nếu sử dụng 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">accessibility tagging nếu có thể 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">metadata PDF 
+w:rsidR="00056FC5" w:rsidRPr="00056FC5" w:rsidRDefault="00056FC5" w:rsidP="00056FC5">bookmarks 
+w:rsidR="00EB5AB5" w:rsidRPr="001E51CB" w:rsidRDefault="00056FC5" w:rsidP="001E51CB">searchable text 

@@ -1,0 +1,781 @@
+\documentclass[9pt,twocolumn]{article}
+\makeatletter\if@twocolumn\PassOptionsToPackage{switch}{lineno}\else\fi\makeatother
+
+%Publisher: Pharmacogn
+%Template Provided By: Typeset
+
+\usepackage{amsmath,amsfonts,amssymb,balance,tabulary,graphicx,caption,fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage[numbers,super,sort&compress]{natbib}
+
+\renewcommand{\bibnumfmt}[1]{\color{titlecolor} #1.}
+
+\usepackage{abstract,mdframed}
+
+
+\usepackage[paperheight=11in,paperwidth=8.51in,margin=2cm,left=1.7cm,headsep=.2cm,right=1.3cm,top=1.8cm]{geometry}
+\renewenvironment{onecolabstract} {\prolight\trivlist\item[] \vspace*{-.65pc}\textbf{\sffamily\fontsize{9pt}{10pt}\color{titlecolor}\selectfont \absname }\\}{\par\noindent\endtrivlist}\setlength{\columnsep}{1pc} 
+\linespread{1.13} \date{}
+\renewcommand{\headrulewidth}{0pt}
+          \usepackage{polyglossia}
+          \PassOptionsToPackage{vietnamese}{babel}
+          \def\absname{TÓM TẮT }
+          \def\Correspondence{\normalfont\textbf{Liên hệ}}
+          \def\History{\normalfont\textbf{Lịch sử}}
+          \def\Received{Ngày nhận}
+          \def\Revised{Ngày sửa đổi}
+          \def\Accepted{Ngày chấp nhận}
+          \def\Published{Ngày đăng}
+          \def\Copyright{\normalfont\textbf{Bản quyền}}
+          \def\publishershortname{ĐHQG Tp.HCM}
+          \def\copyrighttext{Đây là bài báo công bố mở được phát hành theo các điều khoản của the Creative Commons Attribution 4.0 International license.}
+          \def\citetext{Trích dẫn bài báo này}
+          \def\figurenm{\sffamily\bfseries\color{titlecolor}Hình}
+          \def\tablenm{\sffamily\bfseries\color{titlecolor}Bảng}
+
+          \renewcommand\ttfamily\prolight
+        
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Following additional macros are required to function some 
+% functions which are not available in the class used.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{url,multirow,morefloats,floatflt,cancel,tfrupee}
+\makeatletter
+
+
+\AtBeginDocument{\@ifpackageloaded{textcomp}{}{\usepackage{textcomp}}}
+\makeatother
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{pifont}
+\usepackage[nointegrals]{wasysym}
+\urlstyle{rm}
+\makeatletter
+
+%%%For Table column width calculation.
+\def\mcWidth#1{\csname TY@F#1\endcsname+\tabcolsep}
+
+%%Hacking center and right align for table
+\def\cAlignHack{\rightskip\@flushglue\leftskip\@flushglue\parindent\z@\parfillskip\z@skip}
+\def\rAlignHack{\rightskip\z@skip\leftskip\@flushglue \parindent\z@\parfillskip\z@skip}
+
+%Etal definition in references
+\@ifundefined{etal}{\def\etal{\textit{et~al}}}{}
+
+
+%\if@twocolumn\usepackage{dblfloatfix}\fi
+\usepackage{ifxetex}
+\ifxetex\else\if@twocolumn\@ifpackageloaded{stfloats}{}{\usepackage{dblfloatfix}}\fi\fi
+
+\AtBeginDocument{
+\expandafter\ifx\csname eqalign\endcsname\relax
+\def\eqalign#1{\null\vcenter{\def\\{\cr}\openup\jot\m@th
+  \ialign{\strut$\displaystyle{##}$\hfil&$\displaystyle{{}##}$\hfil
+      \crcr#1\crcr}}\,}
+\fi
+}
+
+%For fixing hardfail when unicode letters appear inside table with endfloat
+\AtBeginDocument{%
+  \@ifpackageloaded{endfloat}%
+   {\renewcommand\efloat@iwrite[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}}{\newif\ifefloat@tables}%
+}%
+
+\def\BreakURLText#1{\@tfor\brk@tempa:=#1\do{\brk@tempa\hskip0pt}}
+\let\lt=<
+\let\gt=>
+\def\processVert{\ifmmode|\else\textbar\fi}
+\let\processvert\processVert
+
+\@ifundefined{subparagraph}{
+\def\subparagraph{\@startsection{paragraph}{5}{2\parindent}{0ex plus 0.1ex minus 0.1ex}%
+{0ex}{\normalfont\small\itshape}}%
+}{}
+
+% These are now gobbled, so won't appear in the PDF.
+\newcommand\role[1]{\unskip}
+\newcommand\aucollab[1]{\unskip}
+  
+\@ifundefined{tsGraphicsScaleX}{\gdef\tsGraphicsScaleX{1}}{}
+\@ifundefined{tsGraphicsScaleY}{\gdef\tsGraphicsScaleY{.9}}{}
+% To automatically resize figures to fit inside the text area
+\def\checkGraphicsWidth{\ifdim\Gin@nat@width>\linewidth
+	\tsGraphicsScaleX\linewidth\else\Gin@nat@width\fi}
+
+\def\checkGraphicsHeight{\ifdim\Gin@nat@height>.9\textheight
+	\tsGraphicsScaleY\textheight\else\Gin@nat@height\fi}
+
+\def\fixFloatSize#1{}%\@ifundefined{processdelayedfloats}{\setbox0=\hbox{\includegraphics{#1}}\ifnum\wd0<\columnwidth\relax\renewenvironment{figure*}{\begin{figure}}{\end{figure}}\fi}{}}
+\let\ts@includegraphics\includegraphics
+
+\def\inlinegraphic[#1]#2{{\edef\@tempa{#1}\edef\baseline@shift{\ifx\@tempa\@empty0\else#1\fi}\edef\tempZ{\the\numexpr(\numexpr(\baseline@shift*\f@size/100))}\protect\raisebox{\tempZ pt}{\ts@includegraphics{#2}}}}
+
+%\renewcommand{\includegraphics}[1]{\ts@includegraphics[width=\checkGraphicsWidth]{#1}}
+\AtBeginDocument{\def\includegraphics{\@ifnextchar[{\ts@includegraphics}{\ts@includegraphics[width=\checkGraphicsWidth,height=\checkGraphicsHeight,keepaspectratio]}}}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\def\URL#1#2{\@ifundefined{href}{#2}{\href{#1}{#2}}}
+
+%%For url break
+\def\UrlOrds{\do\*\do\-\do\~\do\'\do\"\do\-}%
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+
+
+
+\edef\fntEncoding{\f@encoding}
+\def\EUoneEnc{EU1}
+\makeatother
+\def\floatpagefraction{0.8} 
+\def\dblfloatpagefraction{0.8}
+\def\style#1#2{#2}
+\def\xxxguillemotleft{\fontencoding{T1}\selectfont\guillemotleft}
+\def\xxxguillemotright{\fontencoding{T1}\selectfont\guillemotright}
+
+\newif\ifmultipleabstract\multipleabstractfalse%
+\newenvironment{typesetAbstractGroup}{}{}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\definecolor{titlecolor}{RGB}{43, 116, 183}
+
+\usepackage{alphalph}
+\makeatletter
+\newalphalph{\alphmult}[mult]{\@alph}{26}
+\makeatother
+\renewcommand{\thefootnote}{{\alphmult{\value{footnote}}}}
+
+
+\usepackage{everyshi}
+
+\makeatletter
+\@ifpackageloaded{lineno}{\setlength{\linenumbersep}{.35pc}}{}
+\usepackage{mathptmx}
+  \def\beforepage#1{%
+    \edef\later@{ later@}%
+    \write\@auxout{%
+        \string\expandafter\string\gdef\string\csname\later@\the\numexpr\c@page\endcsname{\unexpanded{#1}}
+    }%
+    }
+\EveryShipout{\ifcsname later@\the\numexpr\c@page+1\endcsname\csname later@\the\numexpr\c@page+1\endcsname\fi}
+\AtBeginDocument{\ifcsname later@1\endcsname\csname later@1\endcsname\fi}
+\makeatother
+
+\setlength{\bibsep}{0.0pt}
+\usepackage{fontspec}
+%\let\oldcite=\cite
+%\renewcommand{\cite}[1]{\textcolor[RGB]{0,62,136}{\oldcite{#1}}}
+
+\usepackage[colorlinks=true,citecolor=titlecolor,urlcolor=titlecolor,linkcolor=titlecolor]{hyperref}
+
+  \widowpenalty=10000 
+  \clubpenalty=10000
+
+
+\ifxetex
+  \usepackage{letltxmacro}
+  \setlength{\XeTeXLinkMargin}{1pt}
+  \LetLtxMacro\SavedIncludeGraphics\includegraphics
+  \def\includegraphics#1#{% #1 catches optional stuff (star/opt. arg.)
+    \IncludeGraphicsAux{#1}%
+  }%
+  \newcommand*{\IncludeGraphicsAux}[2]{%
+    \XeTeXLinkBox{%
+      \SavedIncludeGraphics#1{#2}%
+    }%
+  }%
+\fi
+
+
+\setmainfont{MinionPro-Regular.otf}[
+BoldFont=MinionPro-Bold.otf,
+ItalicFont=MinionPro-It.otf,
+BoldItalicFont=MinionPro-BoldIt.otf]
+
+\setsansfont{MyriadPro-Regular.otf}[
+BoldFont=MyriadPro-Bold.otf,
+ItalicFont=MyriadPro-It.otf,
+BoldItalicFont=MyriadPro-BoldIt.otf]
+
+\setmonofont{UniversLTStd-Light.otf}[
+BoldFont=UniversLTStd-Bold.otf,
+ItalicFont=UniversLTStd-ExObl.otf,
+BoldItalicFont=UniversLTStd-BlackObl.otf]
+
+\newfontfamily\prolight{MyriadPro-Light.otf}[
+BoldFont=MyriadPro-Bold.otf,
+ItalicFont=MyriadPro-LightIt.otf,
+BoldItalicFont=MyriadPro-BoldIt.otf
+]
+
+
+
+\definecolor{numbercolor}{RGB}{0, 62, 136}
+
+
+\definecolor{tableheadrcolor}{RGB}{229, 229, 229}
+
+\definecolor{unitednationsblue}{RGB}{231, 236, 247}
+
+
+
+      
+      \makeatletter\def\oupIndent{1pt}
+\usepackage{tabcaptionwidth}
+\definecolor{ocre}{RGB}{243,102,25}
+\captionsetup[table]{justification=raggedright,singlelinecheck=false,name={\tablenm},skip=1.4pt,font={small,sf,bf}, width=\tabularWidth}
+\captionsetup[figure]{name={\figurenm},skip=.8pc,font={small,sf,small}}
+\usepackage{changepage}
+
+\usepackage{ifthen,everypage}
+\input{size9-edited.clo}
+      %\def\author#1{\gdef\@author{\hskip-\dimexpr(\tabcolsep)\hskip\oupIndent\parbox{\dimexpr\textwidth-\oupIndent}{\hspace*{-11.5pc}\fontsize{11pt}{12pt}\selectfont\sffamily\color{titlecolor}#1}}}
+      \def\author#1{\gdef\@author{\hskip-\dimexpr(\tabcolsep)%
+      \hskip\oupIndent%
+      \hspace*{-11.5pc}%
+      \parbox{\dimexpr\textwidth-\oupIndent+11.5pc}%
+      {\fontsize{11pt}{12pt}\selectfont\sffamily\color{titlecolor}\raggedright#1}}}
+      
+      \def\title#1{\gdef\@title{\if@twocolumn\else\vspace*{-.8pc}\fi\vspace{.5pc}\hspace*{.2pc}\sffamily\fontsize{18pt}{19pt}
+      \selectfont
+      \bfseries%{
+      \parbox{\dimexpr(\linewidth+4.8cm)}
+      {\color{titlecolor}\raggedright#1\\[-.5pc]}
+      }}
+
+      \let\@articleType\@empty \def\articletype#1{\gdef\@articleType{\bfseries{\fontsize{12pt}{12pt}\selectfont\itshape#1}}}
+
+\fancypagestyle{headings}{\fancyhf{}\renewcommand{\headrulewidth}{.5pt}
+%\fancyhead[L]{\hspace{-11.4pc}\bfseries\sffamily\itshape\fontsize{8.5pt}{10pt}\selectfont \actualjournal\journalname, \cmVolume(\cmIssue):\cmfirstpage-\cmlastpage}
+\fancyhead[L]{\hspace{-11.4pc}\bfseries\sffamily\itshape\fontsize{8.5pt}{10pt}\selectfont \actualjournal\journalname\space\ifx\cmYear\empty\the\year\else\cmYear\fi, \cmVolume(\cmIssue):\cmfirstpage-\cmlastpage}
+\fancyfoot[L]{\color{titlecolor}\bfseries\sffamily\ifthenelse{\isodd{\value{page}}}{}{\thepage}}
+\fancyfoot[R]{\color{titlecolor}\bfseries\sffamily\ifthenelse{\isodd{\value{page}}}{\thepage}{}}
+}
+\pagestyle{headings}
+  
+\fancypagestyle{plain}{\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}\fancyhf{}
+\fancyhead[R]{\begin{minipage}[b]{.5\textwidth}
+\hfill\underline{\@articleType}\hspace*{.2pc} \\[-25pt]
+\end{minipage}}
+\fancyhead[L]{\begin{minipage}[t]{.5\textwidth}
+\hspace{-11.4pc}\itshape\bfseries
+%\sffamily{\fontsize{8pt}{7pt}\selectfont \actualjournal\journalname, \cmVolume(\cmIssue):\cmfirstpage-\cmlastpage\\[.25pc]\hspace*{-11.48pc}
+\sffamily{\fontsize{8pt}{7pt}\selectfont \actualjournal\journalname\space\ifx\cmYear\empty\the\year\else\cmYear\fi,\space\cmVolume(\cmIssue):\cmfirstpage-\cmlastpage\\[.25pc]\hspace*{-11.48pc}
+%\includegraphics[width=.75pc,height=1pc]{open-access.png}
+\includegraphics[scale=.0072,keepaspectratio]{open-access.png}\raisebox{0.4pc}{\normalfont \color{gray}{\bfseries\,Open Access Full Text Article}}
+\hfill}
+\end{minipage}}%
+\fancyfoot[c]{%
+  \normalfont\footnotesize%
+  \raisebox{-.4cm}[2pc]{%
+    %\colorbox{blue!15}{\parbox[c][1.4\height]{.99\textwidth}{\sffamily\fontsize{9pt}{10pt}\selectfont\textbf{\citetext :} \citeauthor. \citetitle. \textit{Sci. Tech. Dev. J.\journalabbv;} \cmVolume(\cmIssue):\cmfirstpage-\cmlastpage.}}}~\\[2pt]\hfill\normalsize\bfseries\sffamily\color{titlecolor}\thepage}
+    \colorbox{blue!15}{\parbox[c][1.4\height]{.99\textwidth}{\sffamily\fontsize{9pt}{10pt}\selectfont\textbf{\citetext :} \citeauthor. \citetitle. \textit{Sci. Tech. Dev. J.\journalabbv}\space\ifx\cmYear\empty\the\year\else\cmYear\fi;\space\cmVolume(\cmIssue):\cmfirstpage-\cmlastpage.}}}~\\[2pt]\hfill\normalsize\bfseries\sffamily\color{titlecolor}\thepage}
+      %\fancyfoot[R]{\raisebox{-1.5cm}[2pc]{\bfseries\sffamily\color{titlecolor}\thepage}}
+      }%
+      \fancyheadoffset[leh,roh]{0pt}
+%\begin{mdframed}[splittopskip=0pt,outerlinewidth=30pt,hidealllines=true,innertopmargin=5pt,leftmargin=-12.25pc]{#1\\[-2.1pc]}\end{mdframed}
+
+\definecolor{trueblue}{rgb}{0.42, 0.35, 0.8}
+\makeatother
+
+
+\usepackage[explicit,noindentafter]{titlesec}
+\def\NormalBaseline{\def\baselinestretch{1.1}}
+\usepackage{textcase}
+\titleformat{\section}[hang]{\NormalBaseline\filright\boldmath\bfseries\color{titlecolor}\fontsize{12pt}{13pt}\selectfont\sffamily}
+{\thesection.}
+{6pt}
+{\MakeTextUppercase{#1}}
+[]
+\titleformat{\subsection}[hang]{\NormalBaseline\color{titlecolor}\fontsize{10pt}{12pt}\selectfont\bfseries\sffamily}
+{\thesubsection.}
+{6pt}
+{{#1}}
+[]
+\titleformat{\subsubsection}[hang]{\NormalBaseline\bfseries\itshape\color{titlecolor}\fontsize{10pt}{12pt}\selectfont\sffamily}
+{\hspace{16pt}\thesubsubsection}
+{6pt}
+{{#1}}
+[]
+\titleformat{\paragraph}[hang]{\NormalBaseline\itshape}
+{\theparagraph}
+{6pt}
+{\color{titlecolor}{#1}}
+[]
+\titleformat{\subparagraph}[runin]{\NormalBaseline}
+{\thesubparagraph}
+{6pt}
+{\color{titlecolor}{#1}}
+[]
+
+\titlespacing{\section}{0pt}{.5\baselineskip}{.3\baselineskip}  
+\titlespacing{\subsection}{0pt}{.8\baselineskip}{.2\baselineskip}  
+\titlespacing{\subsubsection}{0pt}{.8\baselineskip}{.2\baselineskip}  
+\titlespacing{\paragraph}{0pt}{.8\baselineskip}{2pt}  
+\titlespacing{\subparagraph}{0pt}{.5\baselineskip}{2pt}
+
+
+
+
+\def\cmDoi{https://doi.org/10.32508/vnuhcmj-hs.v7i1.630}
+\def\cmVolume{7}
+\def\cmIssue{2}
+\def\cmMonth{}
+\def\cmYear{}
+\def\journalabbv{ - Health Sci.}
+
+\def\cmReceived{14-06-2025}
+\def\cmRevised{10-02-2026}
+\def\cmAccepted{14-04-2026}
+\def\cmPublished{07-05-2026}
+\def\cmfirstpage{804}
+\def\cmlastpage{816}
+\def\citeauthor{V{\~{u}} H,
+              Ph\'{u} V V}
+\def\citetitle{\textbf{Tổng quan về lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng ở người cao tuổi v\`{a} c{\^{\d{a}}}p nh{\^{\d{a}}}t trong \text{\dj}iều tr\d{i}}}\def\journalname{ -- Health Sciences}\def\actualjournal{Tạp chí Phát triển Khoa học và Công nghệ}\renewcommand{\refname}{Tài liệu tham khảo}
+
+
+
+
+
+  
+        \setlength{\parindent}{0pt}
+
+  \usepackage{textpos}
+
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 2em%
+\begin{textblock*}{3cm}(-4.8cm,-2.3cm)
+\begin{minipage}[b][.93\paperheight]{3cm}
+\vfill
+\usebox{\temp}
+\ifdim\the\fooa<200pt
+\hspace*{1pc}\includegraphics[width=3cm,height=2cm]{logo-vnuhcmpress-color}
+\else
+\vspace*{1.15cm}
+\fi
+\end{minipage}
+  \end{textblock*}
+  \let \footnote \thanks
+    \hspace*{-5cm}\parbox{\linewidth}{\LARGE \@title \par}%
+  \begin{center}%
+    \vskip 1.5em%
+    {\large
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 1em%
+    {\large \@date}%
+  \end{center}%
+  \par
+  \vskip 1.5em}
+
+\makeatother
+\AtBeginDocument{\usepackage{lastpage}}
+\usepackage{enumitem}
+\setlist{itemsep=-3pt}
+
+
+\usepackage{float}
+
+\makeatletter
+\AtBeginDocument{\@ifpackageloaded{rotating}{\PassOptionsToPackage{figuresright}{rotating}}{\usepackage[figuresright]{rotating}}\setlength{\rotFPtop}{0pt plus 1fil}\setlength{\rotFPbot}{0pt plus 1fil}}
+\makeatother
+
+\makeatletter
+ \AtBeginDocument{%
+  \@ifpackagewith{endfloat}{figuresonly}
+  {\DeclareDelayedFloatFlavor{sidewaysfigure}{figure}}%true
+  {\@ifpackagewith{endfloat}{tablesonly}{\DeclareDelayedFloatFlavor{sidewaystable}{table}\DeclareDelayedFloatFlavor{longtable}{table}\DeclareDelayedFloatFlavor{landscape}{table}}%true
+  {\@ifpackageloaded{endfloat}{\DeclareDelayedFloatFlavor{sidewaysfigure}{figure}\DeclareDelayedFloatFlavor{sidewaystable}{table}\DeclareDelayedFloatFlavor{longtable}{table}\DeclareDelayedFloatFlavor{landscape}{table}}{}}%false
+  }%false
+  }
+\makeatother
+\usepackage{multirow-custom}
+\begin{document}
+
+
+\articletype{B\`{a}i tổng quan}
+\title{Tổng quan về lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng ở người cao tuổi v\`{a} c{\^{\d{a}}}p nh{\^{\d{a}}}t trong \text{\dj}iều tr\d{i}}
+\author{{\bfseries\sffamily H\`{a}~V{\~{u}}\textsuperscript{*},
+            Vi{\^{e}}n~Vinh~Ph\'{u}}}
+
+          \newsavebox{\temp}
+        \sbox{\temp}{%
+        \parbox{.27\textwidth}{%
+        %\hrule 
+        \noindent\hfil\rule{0.27\textwidth}{.5pt}\hfil
+        \gdef\affbox{\parbox{.27\textwidth}{
+        {~\\[.5pc]\raggedright {\fontsize{8pt}{8pt}\selectfont\itshape B{\^{\d{o}}} m{\^o}n N{\^{\d{o}}}i - Khoa Y {\textendash} Trường \text{\DJ}{\d{a}}i h\d{o}c Khoa h\d{o}c Sức khỏe - \text{\DJ}{\d{a}}i h\d{o}c Quốc Gia Th\`{a}nh phố Hồ Ch\'{\i} Minh\\[.5pc] }{\ttfamily\bfseries\color{titlecolor}\fontsize{7pt}{7pt}\selectfont \Correspondence}\\[.35pc]
+        {\ttfamily\fontsize{7pt}{8pt}\selectfont\textbf{\prolight H\`{a} {V{\~{u}}}}, B{\^{\d{o}}} m{\^o}n N{\^{\d{o}}}i - Khoa Y {\textendash} Trường \text{\DJ}{\d{a}}i h\d{o}c Khoa h\d{o}c Sức khỏe - \text{\DJ}{\d{a}}i h\d{o}c Quốc Gia Th\`{a}nh phố Hồ Ch\'{\i} Minh\\[.35pc]Email: hvu@uhsvnu.edu.vn.\\[.3pc]}}}}
+
+\newdimen\fooa
+\setbox0=\hbox{\affbox}
+\fooa=\ht0 \advance\fooa by \dp0
+\global\fooa=\fooa
+        \affbox
+        \\[.5pc]\raggedright%
+        \gdef\hiscopybox{\parbox{.27\textwidth}{%
+\gdef\his{%\raggedright
+        {\ttfamily\color{titlecolor}\fontsize{7pt}{9pt}\selectfont\bfseries \History}\\[-.1pc]
+{\fontsize{8pt}{9pt}\selectfont \hspace{2pt}{\color{titlecolor} $\bullet$}\ \Received: \ttfamily \cmReceived\\}{\fontsize{8pt}{9pt}\selectfont \hspace{2pt}{\color{titlecolor} $\bullet$}\ \Revised: \ttfamily \cmRevised\\}
+{\fontsize{8pt}{9pt}\selectfont \hspace{2pt}{\color{titlecolor}$\bullet$}\ \Accepted: \ttfamily \cmAccepted\\}
+{\fontsize{8pt}{9pt}\selectfont \hspace{2pt}{\color{titlecolor}$\bullet$}\ \Published: \ttfamily \cmPublished\\[.3pc]}
+{\ttfamily\color{titlecolor}\fontsize{7pt}{9pt}\selectfont\bfseries DOI : }{\fontsize{7pt}{7pt}\selectfont\bfseries \cmDoi}\\[.8pc]
+\includegraphics[width=3.8cm,height=.8cm]{check-update.jpeg}\\[.8pc]}
+\ifdim\the\fooa>200pt\relax\ifdim\the\fooa<265pt\relax\else\his\fi\fi{\raggedright\fontsize{7pt}{9pt}\selectfont{\ttfamily\color{titlecolor}\bfseries \Copyright\\[.1pc]}\textcopyright\ \publishershortname. {\ttfamily \copyrighttext}\\[1pc]}
+\ifdim\the\fooa>200pt\hspace*{1pc}\includegraphics[width=3cm,height=2cm]{logo-vnuhcmpress-color}\fi}}
+      \newdimen\foob
+\setbox0=\hbox{\hiscopybox}
+\global\foob=\ht0 \advance\foob by \dp0
+\AddEverypageHook{
+%\settototalheight\fooc{\affbox}
+ \ifcsname dupcontnt\endcsname%
+\else\ifdim\the\fooa>200pt\ifnum\thepage=2
+\begin{textblock*}{\textwidth}(-.8cm,-.15cm)
+\begin{minipage}[b]{1.2\textwidth}
+\hiscopybox
+\end{minipage}
+  \end{textblock*}\gdef\dupcontnt{}
+\fi\fi\fi
+}
+\ifdim\the\fooa<265pt\his\fi
+\ifdim\the\fooa<200pt\hiscopybox\fi
+
+    }}
+
+\newgeometry{left=15.4pc,right=3.1pc,footskip=0cm,bottom=3.4cm,paperheight=11in,paperwidth=8.51in,headsep=.2cm,top=1.8cm}    
+\twocolumn[ \maketitle {\vspace*{-1pc}\begin{mdframed}[innerrightmargin=1pc,innerleftmargin=1pc,innertopmargin=1pc,backgroundcolor=unitednationsblue,hidealllines=true]\begin{textblock*}{.3\textwidth}(-5cm,0cm)\begin{center}\vspace*{-1.15pc} \hspace*{-.75pc}\includegraphics[scale=.014]{qr-code}\\\vspace*{-.35pc}{\fontsize{8pt}{9pt}\selectfont\hspace*{-.75pc}\color{gray}{Use your smartphone to scan~this}\\\vspace*{-.15pc}\hspace*{-.75pc}\color{gray}{QR code and download this article}}\end{center}\end{textblock*}\begin{onecolabstract}\def\baselinestretch{1.06}\fontsize{9.5pt}{9.5pt}\selectfont B{\^{\d{e}}}nh lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng hi{\^{\d{e}}}n nay l\`{a} m{\^{\d{o}}}t th\'{a}ch thức y t{{\'{\^{e}}}} lớn \text{\dj}ối với người cao tuổi (từ 65 tuổi trở l{\^{e}}n). Mặc d\`{u} tỷ l{\^{\d{e}}} mắc b{\^{\d{e}}}nh chung c{\'{o}} xu hướng giảm, nhưng tần suất bi{{\'{\^{e}}}}n chứng v\`{a} tỷ l{\^{\d{e}}} tử vong ở nh{\'{o}}m d\^{a}n số gi\`{a} l{\d{a}}i gia t{\u{a}}ng r{\~{o}} r{\^{\d{e}}}t, do sự suy giảm chức n{\u{a}}ng sinh l\'{y} d{\d{a}} d\`{a}y v\`{a} t\`{\i}nh tr{\d{a}}ng \text{\dj}a b{\^{\d{e}}}nh l\'{y}. Hai y{{\'{\^{e}}}}u tố g\^{a}y b{\^{\d{e}}}nh h\`{a}ng \text{\dj}ầu l\`{a} nhi{\~{\^e}}m vi khuẩn Helicobacter pylori (H.pylori) (chi{{\'{\^{e}}}}m khoảng 70\% trường hợp) v\`{a} vi{\^{\d{e}}}c sử d\d{u}ng c\'{a}c thuốc g\^{a}y tổn thương ni{\^{e}}m m{\d{a}}c như thuốc kh\'{a}ng vi{\^{e}}m non-steroide (NSAID) hoặc aspirin. Qu\'{a} tr\`{\i}nh l{\~{a}}o h{\'{o}}a g\^{a}y ra những thay \text{\dj}ổi s\^{a}u sắc như l{\~{a}}o h{\'{o}}a mi{\~{\^e}}n d\d{i}ch, rối lo{\d{a}}n vi tuần ho\`{a}n v\`{a} t\`{\i}nh tr{\d{a}}ng teo ni{\^{e}}m m{\d{a}}c dẫn \text{\dj}{{\'{\^{e}}}}n giảm ti{{\'{\^{e}}}}t acid. Những thay \text{\dj}ổi n\`{a}y l\`{a}m suy y{{\'{\^{e}}}}u h\`{a}ng r\`{a}o bảo v{\^{\d{e}}} tự nhi{\^{e}}n, khi{{\'{\^{e}}}}n ni{\^{e}}m m{\d{a}}c d{\d{a}} d\`{a}y d{\~{\^e}} b\d{i} tấn c{\^o}ng bởi c\'{a}c y{{\'{\^{e}}}}u tố {\u{a}}n m\`{o}n, g\^{a}y ra c\'{a}c v{{\'{\^{e}}}}t lo{\'e}t "v{\^o} c{\u{a}}n" hoặc do thuốc. Ở người cao tuổi, c\'{a}c tri{\^{\d{e}}}u chứng thường kh{\^o}ng \text{\dj}iển h\`{\i}nh v\`{a} d{\~{\^e}} b\d{i} che lấp bởi c\'{a}c b{\^{\d{e}}}nh l\'{y} \text{\dj}i k{\`e}m. Chỉ c{\'{o}} khoảng 1/3 b{\^{\d{e}}}nh nh\^{a}n xuất hi{\^{\d{e}}}n cơn \text{\dj}au thượng v\d{i} \text{\dj}iển h\`{\i}nh; số c\`{o}n l{\d{a}}i thường biểu hi{\^{\d{e}}}n mơ hồ như ch\'{a}n {\u{a}}n, s\d{u}t c\^{a}n hoặc th{\^{\d{a}}}m ch\'{\i} khởi ph\'{a}t bằng bi{{\'{\^{e}}}}n chứng nặng như xuất huy{{\'{\^{e}}}}t, thủng d{\d{a}} d\`{a}y. N{\^{\d{o}}}i soi ti{\^{e}}u h{\'{o}}a tr{\^{e}}n k{\`e}m sinh thi{{\'{\^{e}}}}t theo h{\^{\d{e}}} thống Sydney cải ti{{\'{\^{e}}}}n \text{\dj}ược coi l\`{a} ti{\^{e}}u chuẩn v\`{a}ng \text{\dj}ể x\'{a}c \text{\dj}\d{i}nh v\d{i} tr\'{\i} lo{\'e}t, lo{\d{a}}i trừ ung thư v\`{a} \text{\dj}\'{a}nh gi\'{a} t\`{\i}nh tr{\d{a}}ng nhi{\~{\^e}}m H. pylori. Chi{{\'{\^{e}}}}n lược \text{\dj}iều tr\d{i} cần \text{\dj}ược c\'{a} thể h{\'{o}}a m{\^{\d{o}}}t c\'{a}ch chặt chẽ. \text{\DJ}ối với lo{\'e}t do H. pylori, c\'{a}c ph\'{a}c \text{\dj}ồ mới như li{\^{\d{e}}}u ph\'{a}p bốn thuốc c{\'{o}} Bismuth hoặc li{\^{\d{e}}}u ph\'{a}p sử d\d{u}ng thuốc ức ch{{\'{\^{e}}}} k{\^{e}}nh Kali (P-CAB) như Vonoprazan \text{\dj}ang cho thấy hi{\^{\d{e}}}u quả vượt tr{\^{\d{o}}}i. Với lo{\'e}t li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n thuốc, vi{\^{\d{e}}}c ngừng NSAID l\`{a} ưu ti{\^{e}}n h\`{a}ng \text{\dj}ầu; n{{\'{\^{e}}}}u bắt bu{\^{\d{o}}}c phải d\`{u}ng, cần phối hợp với thuốc ức ch{{\'{\^{e}}}} bơm proton (PPI) \text{\dj}ể bảo v{\^{\d{e}}} ni{\^{e}}m m{\d{a}}c. C{\^o}ng t\'{a}c ph\`{o}ng ngừa \text{\dj}{\'{o}}ng vai tr\`{o} then chốt th{\^o}ng qua vi{\^{\d{e}}}c ph\^{a}n tầng nguy cơ, sử d\d{u}ng PPI dự ph\`{o}ng thường quy v\`{a} tầm so\'{a}t di{\^{\d{e}}}t trừ H. pylori trước khi bắt \text{\dj}ầu li{\^{\d{e}}}u ph\'{a}p NSAID hoặc aspirin d\`{a}i h{\d{a}}n.\def\keywordstitle{Keywords}
+
+\noindent\prolight\textbf{Từ khoá: }{B{\^{\d{e}}}nh lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng, b{\^{\d{e}}}nh nh\^{a}n cao tuổi, Helicobacter pylori, thuốc chống vi{\^{e}}m kh{\^o}ng steroid, thuốc ức ch{{\'{\^{e}}}} bơm proton.\newline}\end{onecolabstract}\end{mdframed}}\vspace*{.8pc}]\saythanks \baselineskip=\the\baselineskip plus.5pt minus.5pt 
+
+    
+\section*
+  {\textbf{GIỚI THIỆU VỀ BỆNH LO\'{E}T D\d{A} D\`{A}Y T\'{A} TR\`{A}NG:}}
+Lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng l\`{a} t\`{\i}nh tr{\d{a}}ng tổn thương ni{\^{e}}m m{\d{a}}c d{\d{a}} d\`{a}y hoặc t\'{a} tr\`{a}ng. Theo v\d{i} tr\'{\i} giải phẫu, lo{\'e}t d{\d{a}} d\`{a}y \text{\dj}ược chia th\`{a}nh lo{\'e}t d{\d{a}} d\`{a}y, tức l\`{a} lo{\'e}t d{\d{a}} d\`{a}y ở ph\`{\i}nh v\d{i}, th\^{a}n hoặc hang v\d{i}, lo{\'e}t tiền m{\^o}n v\d{i} v\`{a} m{\^o}n v\d{i} ngh{\~{\i}}a l\`{a} nằm c\'{a}ch v\`{o}ng m{\^o}n v\d{i} trong v\`{o}ng 3 cm tương ứng v\`{a} lo{\'e}t t\'{a} tr\`{a}ng ngh{\~{\i}}a l\`{a} nằm trong h\`{a}nh t\'{a} tr\`{a}ng hay ở phần thứ hai của t\'{a} tr\`{a}ng (\textbf{H\`{\i}nh 1})\unskip~\cite{2901310:34531806} . Ở người cao tuổi, lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng kh{\^o}ng chỉ \text{\dj}ơn thuần l\`{a} sự xuất hi{\^{\d{e}}}n tổn thương ni{\^{e}}m m{\d{a}}c d{\d{a}} d\`{a}y m\`{a} l\`{a} m{\^{\d{o}}}t thực thể l\^{a}m s\`{a}ng ri{\^{e}}ng bi{\^{\d{e}}}t. N{\'{o}} gắn liền với sự suy giảm chức n{\u{a}}ng sinh l\'{y} d{\d{a}} d\`{a}y, t\`{\i}nh tr{\d{a}}ng suy nhược, \text{\dj}a b{\^{\d{e}}}nh l\'{y} v\`{a} vi{\^{\d{e}}}c sử d\d{u}ng \text{\dj}ồng thời nhiều lo{\d{a}}i thuốc, \text{\dj}\`{o}i hỏi chi{{\'{\^{e}}}}n lược ti{{\'{\^{e}}}}p c{\^{\d{a}}}n chuy{\^{e}}n bi{\^{\d{e}}}t\unskip~\cite{2901310:34531807} . Trong n{\^{\d{o}}}i dung của ch\'{u}ng t{\^o}i, người b{\^{\d{e}}}nh \text{\dj}ược xem l\`{a} người cao tuổi \text{\dj}ược x\'{a}c \text{\dj}\d{i}nh thống nhất từ 65 tuổi trở l{\^{e}}n\unskip~\cite{2901310:34531807}\ensuremath{^{\textbf{\space }}}như trong c\'{a}c hướng dẫn thực h\`{a}nh l\^{a}m s\`{a}ng v\`{a} c\'{a}c nghi{\^{e}}n cứu c{\^{\d{a}}}p nh{\^{\d{a}}}t về \text{\dj}ối tượng người cao tuổi\unskip~\cite{2901310:34531808} .
+\bgroup
+\fixFloatSize{images/21b96d08-b05f-46d2-b278-a27112337f5fimage1.png}
+\begin{figure*}[!htbp]\begin{mdframed}[backgroundcolor=unitednationsblue,hidealllines=true]
+\centering \makeatletter\IfFileExists{images/21b96d08-b05f-46d2-b278-a27112337f5fimage1.png}{\includegraphics{images/21b96d08-b05f-46d2-b278-a27112337f5fimage1.png}}{\includegraphics{21b96d08-b05f-46d2-b278-a27112337f5fimage1.png}}
+\makeatother 
+\caption{{\textbf{V\d{i} tr\'{\i} giải phẫu của lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng. } \mbox{}\protect\newline \textit{(\textbf{Nguồn}: Pilotto A FM. Upper Gastrointestinal Disorders. Hazzard's Geriatric Medicine and Gerontology, 8\ensuremath{^{th}} , 2022. McGraw Hill)\textbf{\ensuremath{^{1}}}}}}
+\label{figure-aa11e3f124934de78fff2d60f27f3658}\end{mdframed}
+\end{figure*}
+\egroup
+
+    
+\section*
+  {\textbf{D\d{I}CH TỄ H\d{O}C:}}
+D\d{i}ch t{\~{\^e}} h\d{o}c của lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng~ở b{\^{\d{e}}}nh nh\^{a}n lớn tuổi cho thấy m{\^{\d{o}}}t bức tranh phức t{\d{a}}p v\`{a} \text{\dj}a d{\d{a}}ng. Tỷ l{\^{\d{e}}} mắc lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng tr{\^{e}}n to\`{a}n cầu dao \text{\dj}{\^{\d{o}}}ng từ 0,1\% \text{\dj}{{\'{\^{e}}}}n 4,7\%, với tỷ l{\^{\d{e}}} mắc mới h\`{a}ng n{\u{a}}m khoảng 0,19{\textendash}0,3\%. Lo{\'e}t t\'{a} tr\`{a}ng thường gặp hơn ở c\'{a}c nước phương T\^{a}y, trong khi lo{\'e}t d{\d{a}} d\`{a}y phổ bi{{\'{\^{e}}}}n hơn t{\d{a}}i ch\^{a}u \'{A}. Mặc d\`{u} tỷ l{\^{\d{e}}} hi{\^{\d{e}}}n mắc v\`{a} mắc mới lo{\'e}t d{\d{a}} d\`{a}y {\textendash} t\'{a} tr\`{a}ng nh\`{\i}n chung c{\'{o}} xu hướng giảm, tần suất mắc b{\^{\d{e}}}nh, bi{{\'{\^{e}}}}n chứng v\`{a} tỷ l{\^{\d{e}}} tử vong l{\d{a}}i t{\u{a}}ng r{\~{o}} r{\^{\d{e}}}t theo tuổi, \text{\dj}ặc bi{\^{\d{e}}}t ở người cao tuổi, khi{{\'{\^{e}}}}n b{\^{\d{e}}}nh vẫn l\`{a} m{\^{\d{o}}}t vấn \text{\dj}ề y t{{\'{\^{e}}}} quan tr\d{o}ng trong bối cảnh gi\`{a} h{\'{o}}a d\^{a}n số to\`{a}n cầu[11] . Ph\^{a}n t\'{\i}ch dữ li{\^{\d{e}}}u Global Burden of Disease cho thấy số ca lo{\'e}t ti{\^{e}}u h{\'{o}}a ở nh{\'{o}}m người \ensuremath{\geq }70 tuổi t{\u{a}}ng từ khoảng 1,06 tri{\^{\d{e}}}u trường hợp n{\u{a}}m 1990 l{\^{e}}n 1,61 tri{\^{\d{e}}}u trường hợp n{\u{a}}m 2019, d\`{u} tỷ l{\^{\d{e}}} hi{\^{\d{e}}}n mắc chuẩn h{\'{o}}a theo tuổi c{\'{o}} xu hướng giảm, phản \'{a}nh hi{\^{\d{e}}}u quả của c\'{a}c bi{\^{\d{e}}}n ph\'{a}p dự ph\`{o}ng v\`{a} \text{\dj}iều tr\d{i} như kiểm so\'{a}t Helicobacter pylori v\`{a} sử d\d{u}ng thuốc ức ch{{\'{\^{e}}}} ti{{\'{\^{e}}}}t acid. G\'{a}nh nặng b{\^{\d{e}}}nh c{\'{o}} sự kh\'{a}c bi{\^{\d{e}}}t theo khu vực \text{\dj}\d{i}a l\'{y}, cao hơn t{\d{a}}i c\'{a}c quốc gia thu nh{\^{\d{a}}}p trung b\`{\i}nh{\textendash}thấp v\`{a} m{\^{\d{o}}}t số v\`{u}ng ch\^{a}u \'{A}, ch\^{a}u Phi\unskip~\cite{2901310:34531809} . Ở người cao tuổi, lo{\'e}t d{\d{a}} d\`{a}y thường mang t\'{\i}nh \text{\dj}a y{{\'{\^{e}}}}u tố, li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n sử d\d{u}ng NSAIDs/aspirin, thuốc kh\'{a}ng \text{\dj}{\^o}ng, \text{\dj}a b{\^{\d{e}}}nh l\'{y} m{\d{a}}n t\'{\i}nh v\`{a} suy giảm cơ ch{{\'{\^{e}}}} bảo v{\^{\d{e}}} ni{\^{e}}m m{\d{a}}c, dẫn \text{\dj}{{\'{\^{e}}}}n nguy cơ bi{{\'{\^{e}}}}n chứng v\`{a} tử vong cao hơn so với người trẻ\unskip~\cite{2901310:34531809,2901310:34531810} .
+    
+\section*
+  {\textbf{SINH L\'{Y} BỆNH V\`{A} PH\^{A}N LO\d{A}I:}}
+Qu\'{a} tr\`{\i}nh l{\~{a}}o h{\'{o}}a g\^{a}y ra những thay \text{\dj}ổi cấu tr\'{u}c v\`{a} chức n{\u{a}}ng s\^{a}u sắc,ở d{\d{a}} d\`{a}y, l{\~{a}}o ho\'{a} l\`{a}m suy y{{\'{\^{e}}}}u h\`{a}ng r\`{a}o bảo v{\^{\d{e}}} ni{\^{e}}m m{\d{a}}c chủ y{{\'{\^{e}}}}u do c\'{a}c y{{\'{\^{e}}}}u tố: (1) L{\~{a}}o h{\'{o}}a mi{\~{\^e}}n d\d{i}ch l\`{a} sự suy giảm phản ứng mi{\~{\^e}}n d\d{i}ch t{\d{a}}i chỗ khi{{\'{\^{e}}}}n ni{\^{e}}m m{\d{a}}c d{\d{a}} d\`{a}y d{\~{\^e}} b\d{i} vi khuẩn H. pylori tấn c{\^o}ng v\`{a} g\^{a}y vi{\^{e}}m m{\~{a}}n t\'{\i}nh k{\'e}o d\`{a}i, (2) Rối lo{\d{a}}n vi tuần ho\`{a}n l\`{a} sự giảm tưới m\'{a}u ni{\^{e}}m m{\d{a}}c v\`{a} rối lo{\d{a}}n chức n{\u{a}}ng c\'{a}c m{\d{a}}ch m\'{a}u nhỏ l\`{a}m ch{\^{\d{a}}}m qu\'{a} tr\`{\i}nh chữa l\`{a}nh v{{\'{\^{e}}}}t thương, \text{\dj}ặc bi{\^{\d{e}}}t dưới t\'{a}c \text{\dj}{\^{\d{o}}}ng của c{\u{a}}ng thẳng sinh l\'{y} v\`{a} (3) T\`{\i}nh tr{\d{a}}ng giảm toan v\`{a} lo{\d{a}}n khuẩn l\`{a} sự teo ni{\^{e}}m m{\d{a}}c dẫn \text{\dj}{{\'{\^{e}}}}n giảm ti{{\'{\^{e}}}}t acid, l\`{a}m thay \text{\dj}ổi h{\^{\d{e}}} vi sinh v{\^{\d{a}}}t d{\d{a}} d\`{a}y, t{\d{a}}o \text{\dj}iều ki{\^{\d{e}}}n cho c\'{a}c vi khuẩn c{\'{o}} h{\d{a}}i ph\'{a}t triển v\`{a} l\`{a}m giảm hấp thu c\'{a}c dưỡng chất thi{{\'{\^{e}}}}t y{{\'{\^{e}}}}u như Vitamin B12, sắt v\`{a} canxi\unskip~\cite{2901310:34531807} . Từ \text{\dj}{\'{o}} giải th\'{\i}ch cho hai y{{\'{\^{e}}}}u tố ch\'{\i}nh c{\'{o}} thể giải th\'{\i}ch sự gia t{\u{a}}ng lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng \text{\dj}ược quan s\'{a}t thấy ở b{\^{\d{e}}}nh nh\^{a}n cao tuổi l\`{a} tỷ l{\^{\d{e}}} nhi{\~{\^e}}m H. pylori cao v\`{a} vi{\^{\d{e}}}c sử d\d{u}ng thường xuy{\^{e}}n c\'{a}c thuốc g\^{a}y tổn thương ni{\^{e}}m m{\d{a}}c như NSAID v\`{a} aspirin. Tuy nhi{\^{e}}n, ở những người cao tuổi, khoảng 20\% \noindent \noindent tổng số ca lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng kh{\^o}ng li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n m{\^{\d{o}}}t trong hai y{{\'{\^{e}}}}u tố nguy cơ n\`{a}y \textbf{(H\`{\i}nh 2)\unskip~\cite{2901310:34531811}}. Sinh l\'{y} b{\^{\d{e}}}nh của b{\^{\d{e}}}nh lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng kh{\^o}ng do NSAID, kh{\^o}ng do H. pylori \text{\dj}ược g\d{o}i l\`{a} ``v{\^o} c{\u{a}}n'' th\`{\i} vẫn chưa chắc chắn, nhưng dường như c{\'{o}} sự mất c\^{a}n bằng nghi{\^{e}}m tr\d{o}ng giữa c\'{a}c y{{\'{\^{e}}}}u tố bảo v{\^{\d{e}}} v\`{a} {\u{a}}n m\`{o}n ở ni{\^{e}}m m{\d{a}}c d{\d{a}} d\`{a}y hoặc t\'{a} tr\`{a}ng. Tuổi cao c{\'{o}} li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n vi{\^{\d{e}}}c giảm h\`{a}ng r\`{a}o ni{\^{e}}m m{\d{a}}c d{\d{a}} d\`{a}y, ngh{\~{\i}}a l\`{a} khả n{\u{a}}ng chống l{\d{a}}i c\'{a}c tổn thương b{\^{e}}n ngo\`{a}i do ti{{\'{\^{e}}}}t chất nhầy d{\d{a}} d\`{a}y, b\`{a}i ti{{\'{\^{e}}}}t bicarbonate, prostaglandin ni{\^{e}}m m{\d{a}}c, t{\u{a}}ng sinh ni{\^{e}}m m{\d{a}}c d{\d{a}} d\`{a}y v\`{a}/hoặc lưu lượng m\'{a}u ni{\^{e}}m m{\d{a}}c. Hơn nữa, ở những b{\^{\d{e}}}nh nh\^{a}n cao tuổi mắc b{\^{\d{e}}}nh lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng, \text{\dj}{\~{a}} quan s\'{a}t thấy nồng \text{\dj}{\^{\d{o}}} axit d{\d{a}} d\`{a}y v\`{a} pepsin ti{{\'{\^{e}}}}t ra ở mức b\`{\i}nh thường hoặc cao. Mặc d\`{u} tuổi cao c{\'{o}} li{\^{e}}n quan \text{\dj}{\^{\d{o}}}c l{\^{\d{a}}}p với vi{\^{e}}m teo d{\d{a}} d\`{a}y m{\d{a}}n t\'{\i}nh v\`{a} t\`{\i}nh tr{\d{a}}ng chức n{\u{a}}ng của t\`{\i}nh tr{\d{a}}ng giảm/thi{{\'{\^{e}}}}u axit d\d{i}ch v\d{i}, những thay \text{\dj}ổi teo của ni{\^{e}}m m{\d{a}}c d{\d{a}} d\`{a}y dường như c{\'{o}} li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n nhi{\~{\^e}}m H. pylori  hơn l\`{a} do l{\~{a}}o h{\'{o}}a. C{\u{a}}ng thẳng về cảm x\'{u}c, h\'{u}t thuốc l\'{a} v\`{a}/hoặc sử d\d{u}ng rượu l\`{a} những y{{\'{\^{e}}}}u tố nguy cơ tiềm ẩn c{\'{o}} thể g{\'{o}}p phần v\`{a}o sự ph\'{a}t triển lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng ở những \text{\dj}ối tượng d{\~{\^e}} mắc\unskip~\cite{2901310:34531806} .
+\bgroup
+\fixFloatSize{images/21b96d08-b05f-46d2-b278-a27112337f5fimage2.png}
+\begin{figure*}[!htbp]\begin{mdframed}[backgroundcolor=unitednationsblue,hidealllines=true]
+\centering \makeatletter\IfFileExists{images/21b96d08-b05f-46d2-b278-a27112337f5fimage2.png}{\includegraphics{images/21b96d08-b05f-46d2-b278-a27112337f5fimage2.png}}{\includegraphics{21b96d08-b05f-46d2-b278-a27112337f5fimage2.png}}
+\makeatother 
+\caption{{Tỷ l{\^{\d{e}}} lo{\'e}t d{\d{a}} d\`{a}y v\`{a} t\'{a} tr\`{a}ng ở b{\^{\d{e}}}nh nh\^{a}n cao tuổi ph\^{a}n chia theo sự hi{\^{\d{e}}}n di{\^{\d{e}}}n của nhi{\~{\^e}}m H pylori v\`{a}/hoặc sử d\d{u}ng NSAID. \mbox{}\protect\newline \ensuremath{^{}}(\textbf{Nguồn}: Pilotto A. Helicobacter pylori-associated peptic ulcer disease in older patients: current management strategies. Drugs \& aging. 2001;18(7):487-94)\ensuremath{^{6\ensuremath{^{}}}}}}
+\label{figure-d4ed69c33ad44dd4bde1c021005c57e7}\end{mdframed}
+\end{figure*}
+\egroup
+
+    
+\section*
+  {\textbf{B{\^{\d{e}}}nh lo{\'e}t d{\d{a}} d\`{a}y li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n } \textbf{H. pylori:}}
+Nhi{\~{\^e}}m Helicobacter pylori vẫn phổ bi{{\'{\^{e}}}}n ở người cao tuổi, mặc d\`{u} tỷ l{\^{\d{e}}} nhi{\~{\^e}}m \text{\dj}{\~{a}} giảm ở c\'{a}c th{{\'{\^{e}}}} h{\^{\d{e}}} trẻ nhờ cải thi{\^{\d{e}}}n \text{\dj}iều ki{\^{\d{e}}}n v{\^{\d{e}}} sinh v\`{a} ch{\u{a}}m s{\'{o}}c y t{{\'{\^{e}}}}\unskip~\cite{2901310:34531807} . Khoảng 70\% b{\^{\d{e}}}nh nh\^{a}n lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng cao tuổi c{\'{o}} H. pylori dương t\'{\i}nh \textbf{(H\`{\i}nh 2)}. \text{\DJ}iều tr\d{i} nhi{\~{\^e}}m H. pylori gi\'{u}p chữa l\`{a}nh v{{\'{\^{e}}}}t lo{\'e}t ở hơn 95\% b{\^{\d{e}}}nh nh\^{a}n cao tuổi v\`{a} cải thi{\^{\d{e}}}n tri{\^{\d{e}}}u chứng ở hơn 85\%. Hơn nữa, vi{\^{\d{e}}}c ti{\^{\d{e}}}t trừ H. pylori gi\'{u}p cải thi{\^{\d{e}}}n k{{\'{\^{e}}}}t quả l\^{a}m s\`{a}ng, giảm c\'{a}c tri{\^{\d{e}}}u chứng v\`{a} t\'{a}i ph\'{a}t lo{\'e}t. C\'{a}c chương tr\`{\i}nh y t{{\'{\^{e}}}} nhằm ti{\^{\d{e}}}t trừ H. pylori tr{\^{e}}n di{\^{\d{e}}}n r{\^{\d{o}}}ng ở những b{\^{\d{e}}}nh nh\^{a}n c{\'{o}} tri{\^{\d{e}}}u chứng \text{\dj}{\~{a}} l\`{a}m giảm tỷ l{\^{\d{e}}} mắc b{\^{\d{e}}}nh lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng, \text{\dj}ặc bi{\^{\d{e}}}t l\`{a} lo{\'e}t t\'{a} tr\`{a}ng, cả ở Ch\^{a}u \^{A}u v\`{a} Vi{\~{\^e}}n \text{\DJ}{\^o}ng. Tuy nhi{\^{e}}n, tỷ l{\^{\d{e}}} b{\^{\d{e}}}nh nh\^{a}n cao tuổi mắc lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng \text{\dj}ược \text{\dj}iều tr\d{i} nhi{\~{\^e}}m H. pylori vẫn c\`{o}n kh\'{a} thấp. Trong m{\^{\d{o}}}t nghi{\^{e}}n cứu ở Hoa Kỳ, chỉ 40\% \text{\dj}{{\'{\^{e}}}}n 56\% b{\^{\d{e}}}nh nh\^{a}n {\textgreater} 65 tuổi nh{\^{\d{a}}}p vi{\^{\d{e}}}n v\`{\i} lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng \text{\dj}ược x{\'e}t nghi{\^{\d{e}}}m nhi{\~{\^e}}m H. pylori v\`{a} trong số những b{\^{\d{e}}}nh nh\^{a}n dương t\'{\i}nh với H. pylori, chỉ c{\'{o}} 50\% \text{\dj}{{\'{\^{e}}}}n 73\% \text{\dj}ược \text{\dj}iều tr\d{i} bằng li{\^{\d{e}}}u ph\'{a}p ti{\^{\d{e}}}t trừ H. pylori dựa tr{\^{e}}n kh\'{a}ng sinh c\d{u} thể\unskip~\cite{2901310:34531811} .
+    
+\section*
+  {\textbf{B{\^{\d{e}}}nh lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n NSAID/aspirin:}}
+Ở b{\^{\d{e}}}nh nh\^{a}n cao tuổi, khoảng 25\% lo{\'e}t t\'{a} tr\`{a}ng v\`{a} 40\% lo{\'e}t d{\d{a}} d\`{a}y c{\'{o}} li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n vi{\^{\d{e}}}c sử d\d{u}ng NSAID v\`{a}/hoặc aspirin \textbf{(H\`{\i}nh 2)}. Nguy cơ lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n NSAID v\`{a} c\'{a}c bi{{\'{\^{e}}}}n chứng nghi{\^{e}}m tr\d{o}ng của ch\'{u}ng c{\'{o}} xu hướng t{\u{a}}ng tuy{{\'{\^{e}}}}n t\'{\i}nh theo \text{\dj}{\^{\d{o}}} tuổi v\`{a} trở n{\^{e}}n \text{\dj}ặc bi{\^{\d{e}}}t cao khi c{\'{o}} t\`{\i}nh tr{\d{a}}ng khuy{{\'{\^{e}}}}t t{\^{\d{a}}}t, b{\^{\d{e}}}nh \text{\dj}i k{\`e}m v\`{a} d\`{u}ng nhiều lo{\d{a}}i thuốc. M{\^{\d{o}}}t nghi{\^{e}}n cứu b{\^{\d{e}}}nh chứng \text{\dj}ược thực hi{\^{\d{e}}}n ở hơn 3000 b{\^{\d{e}}}nh nh\^{a}n cao tuổi \text{\dj}ược n{\^{\d{o}}}i soi \text{\dj}{\~{a}} ghi nh{\^{\d{a}}}n rằng những \text{\dj}ối tượng \text{\dj}ang \text{\dj}iều tr\d{i} NSAID v\`{a}/hoặc aspirin c{\'{o}} tỷ l{\^{\d{e}}} lo{\'e}t d{\d{a}} d\`{a}y v\`{a} t\'{a} tr\`{a}ng cao hơn so với nh{\'{o}}m chứng kh{\^o}ng sử d\d{u}ng. Hơn nữa, nguy cơ lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng cao hơn \text{\dj}\'{a}ng kể ở người d\`{u}ng ngắn h{\d{a}}n so với người d\`{u}ng NSAID hoặc aspirin d\`{a}i h{\d{a}}n \textbf{(H\`{\i}nh 3)}. T\'{a}c d\d{u}ng g\^{a}y tổn thương d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng của NSAID v\`{a} aspirin chủ y{{\'{\^{e}}}}u l\`{a} do ức ch{{\'{\^{e}}}} COX-1 (COX-1 c{\'{o}} vai tr\`{o} bảo v{\^{\d{e}}} ni{\^{e}}m m{\d{a}}c), nhưng c{\~{u}}ng do ức ch{{\'{\^{e}}}} Thromboxane A2 n{\^{e}}n l\`{a}m giảm chức n{\u{a}}ng tiểu cầu, dẫn \text{\dj}{{\'{\^{e}}}}n nguy cơ chảy m\'{a}u cao hơn. Tuy nhi{\^{e}}n, kh{\^o}ng thể lo{\d{a}}i trừ t\'{a}c d\d{u}ng trực ti{{\'{\^{e}}}}p l{\^{e}}n bề mặt ni{\^{e}}m m{\d{a}}c d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng, \text{\dj}ặc bi{\^{\d{e}}}t \text{\dj}ối với NSAID c{\'{o}} tỷ l{\^{\d{e}}} pK axit/bazơ cao\unskip~\cite{2901310:34531811}\ensuremath{^{}}.
+
+
+\bgroup
+\fixFloatSize{images/21b96d08-b05f-46d2-b278-a27112337f5fimage3.png}
+\begin{figure*}[!htbp]\begin{mdframed}[backgroundcolor=unitednationsblue,hidealllines=true]
+\centering \makeatletter\IfFileExists{images/21b96d08-b05f-46d2-b278-a27112337f5fimage3.png}{\includegraphics{images/21b96d08-b05f-46d2-b278-a27112337f5fimage3.png}}{\includegraphics{21b96d08-b05f-46d2-b278-a27112337f5fimage3.png}}
+\makeatother 
+\caption{{\textbf{Tỷ l{\^{\d{e}}} lo{\'e}t d{\d{a}} d\`{a}y v\`{a} lo{\'e}t t\'{a} tr\`{a}ng ở người sử d\d{u}ng NSAID v\`{a} người kh{\^o}ng sử d\d{u}ng NSAID. aspirin.}\textit{(\textbf{Nguồn}: Pilotto A FM. Upper Gastrointestinal Disorders. Hazzard's Geriatric Medicine and Gerontology, 8th edition, 2022. McGraw Hill)\ensuremath{^{1}}}}}
+\label{figure-1da2d3eeb4c645c38dd45283f10e4448}\end{mdframed}
+\end{figure*}
+\egroup
+C\'{a}c NSAID kh\'{a}c nhau c{\'{o}} li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n c\'{a}c t\'{a}c d\d{u}ng ph\d{u} tr{\^{e}}n \text{\dj}ường ti{\^{e}}u h{\'{o}}a kh\'{a}c nhau, tuy nhi{\^{e}}n kh{\^o}ng NSAID n\`{a}o cho thấy \text{\dj}{\^{\d{o}}} an to\`{a}n tuy{\^{\d{e}}}t \text{\dj}ối. C\'{a}c \text{\dj}ặc t\'{\i}nh dược lực h\d{o}c v\`{a} dược \text{\dj}{\^{\d{o}}}ng h\d{o}c li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n thuốc c{\'{o}} thể giải th\'{\i}ch sự bi{{\'{\^{e}}}}n \text{\dj}ổi của từng lo{\d{a}}i thuốc về t\'{a}c d\d{u}ng ph\d{u} tr{\^{e}}n \text{\dj}ường ti{\^{e}}u h{\'{o}}a tr{\^{e}}n. Khuynh hướng di truyền do t\'{\i}nh \text{\dj}a h\`{\i}nh của cytochrome P4502C9 l\`{a}m giảm chuyển h{\'{o}}a của m{\^{\d{o}}}t số NSAID với thời gian d\`{u}ng thuốc k{\'e}o d\`{a}i, l\`{a}m t{\u{a}}ng nguy cơ tổn thương ni{\^{e}}m m{\d{a}}c \text{\dj}ường ti{\^{e}}u h{\'{o}}a, \text{\dj}{\~{a}} \text{\dj}ược b\'{a}o c\'{a}o l\`{a} y{{\'{\^{e}}}}u tố tiềm ẩn ảnh hưởng \text{\dj}{{\'{\^{e}}}}n t\'{a}c d\d{u}ng g\^{a}y lo{\'e}t của c\'{a}c NSAID kh\'{a}c nhau\unskip~\cite{2901310:34531812} .
+    
+\section*
+  {\textbf{CHẨN \text{\DJ}O\'{A}N:}}
+Ở người cao tuổi, lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng thường kh{\'{o}} chẩn \text{\dj}o\'{a}n v\`{\i} c\'{a}c tri{\^{\d{e}}}u chứng c{\'{o}} thể kh{\^o}ng \text{\dj}iển h\`{\i}nh. C\'{a}c b{\^{\d{e}}}nh v\`{a} c\'{a}c thuốc \text{\dj}iều tr\d{i} \text{\dj}ồng thời của b{\^{\d{e}}}nh nh\^{a}n c{\'{o}} thể g\^{a}y ra c\'{a}c tri{\^{\d{e}}}u chứng che lấp c\'{a}c tri{\^{\d{e}}}u chứng của v{{\'{\^{e}}}}t lo{\'e}t. Ở những b{\^{\d{e}}}nh nh\^{a}n {\textgreater} 60 tuổi, chỉ 1/3 b\d{i} \text{\dj}au thượng v\d{i} \text{\dj}iển h\`{\i}nh v\`{a} 2/3 b\d{i} \text{\dj}au b\d{u}ng mơ hồ l\`{a} tri{\^{\d{e}}}u chứng ch\'{\i}nh. Hơn nữa, cường \text{\dj}{\^{\d{o}}} \text{\dj}au c{\'{o}} thể \'{\i}t nghi{\^{e}}m tr\d{o}ng hơn ở những người cao tuổi v\`{a} do \text{\dj}{\'{o}} b\'{a}c s{\~{\i}} c{\'{o}} thể bỏ s{\'{o}}t hoặc c{\'{o}} thể kh{\^o}ng \text{\dj}ược b{\^{\d{e}}}nh nh\^{a}n coi tr\d{o}ng. Th{\^o}ng thường, tri{\^{\d{e}}}u chứng bao gồm buồn n{\^o}n, n{\^o}n, s\d{u}t c\^{a}n v\`{a}/hoặc ch\'{a}n {\u{a}}n l\`{a} tri{\^{\d{e}}}u chứng \text{\dj}ầu ti{\^{e}}n hoặc th{\^{\d{a}}}m ch\'{\i} l\`{a} duy nhất của lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng ở người cao tuổi. Tuy nhi{\^{e}}n, tri{\^{\d{e}}}u chứng \text{\dj}ầu ti{\^{e}}n c{\'{o}} thể l\`{a} m{\^{\d{o}}}t bi{{\'{\^{e}}}}n chứng nghi{\^{e}}m tr\d{o}ng, \text{\dj}ặc bi{\^{\d{e}}}t l\`{a} chảy m\'{a}u hoặc h\d{e}p m{\^o}n v\d{i}. Do biểu hi{\^{\d{e}}}n l\^{a}m s\`{a}ng \^{a}m thầm của b{\^{\d{e}}}nh ở b{\^{\d{e}}}nh nh\^{a}n cao tuổi n{\^{e}}n h{\^{\d{a}}}u quả của lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng nghi{\^{e}}m tr\d{o}ng hơn so với b{\^{\d{e}}}nh nh\^{a}n trẻ tuổi\unskip~\cite{2901310:34531806} . N{\^{\d{o}}}i soi ti{\^{e}}u h{\'{o}}a tr{\^{e}}n v\`{a} sinh thi{{\'{\^{e}}}}t, \text{\dj}\^{a}y l\`{a} ti{\^{e}}u chuẩn v\`{a}ng trong chẩn \text{\dj}o\'{a}n lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng. Cần thực hi{\^{\d{e}}}n sinh thi{{\'{\^{e}}}}t mapping theo h{\^{\d{e}}} thống Sydney cải ti{{\'{\^{e}}}}n (\'{\i}t nhất 5 v\d{i} tr\'{\i}: 2 hang v\d{i}, 2 th\^{a}n v\d{i}, 1 g{\'{o}}c bờ cong nhỏ) \text{\dj}ể \text{\dj}\'{a}nh gi\'{a} teo ni{\^{e}}m m{\d{a}}c v\`{a} chuyển sản ru{\^{\d{o}}}t theo h{\^{\d{e}}} thống OLGA (Operative Link on Gastritis Assessment) v\`{a} OLGIM (Operative Link on Gastric Intestinal Metaplasia) dựa tr{\^{e}}n k{{\'{\^{e}}}}t quả m{\^o} b{\^{\d{e}}}nh h\d{o}c từ c\'{a}c mẫu sinh thi{{\'{\^{e}}}}t d{\d{a}} d\`{a}y theo h{\^{\d{e}}} thống Sydney cải ti{{\'{\^{e}}}}n. Mức \text{\dj}{\^{\d{o}}} teo ni{\^{e}}m m{\d{a}}c hoặc chuyển sản ru{\^{\d{o}}}t \text{\dj}ược chấm \text{\dj}iểm từ 0 \text{\dj}{{\'{\^{e}}}}n 3 ri{\^{e}}ng cho hang v\d{i} v\`{a} th\^{a}n v\d{i}, sau \text{\dj}{\'{o}} ph\^{a}n lo{\d{a}}i th\`{a}nh c\'{a}c giai \text{\dj}o{\d{a}}n từ 0 \text{\dj}{{\'{\^{e}}}}n IV. C\'{a}c giai \text{\dj}o{\d{a}}n OLGA/OLGIM III{\textendash}IV \text{\dj}ược xem l\`{a} nh{\'{o}}m nguy cơ cao ung thư d{\d{a}} d\`{a}y v\`{a} cần \text{\dj}ược theo d{\~{o}}i n{\^{\d{o}}}i soi \text{\dj}\d{i}nh kỳ. Trong thực h\`{a}nh hi{\^{\d{e}}}n nay, OLGIM \text{\dj}ược ưu ti{\^{e}}n do \text{\dj}{\^{\d{o}}} lặp l{\d{a}}i giữa c\'{a}c nh\`{a} giải phẫu b{\^{\d{e}}}nh cao hơn v\`{a} khả n{\u{a}}ng dự b\'{a}o nguy cơ ung thư d{\d{a}} d\`{a}y tốt hơn\unskip~\cite{2901310:34531813,2901310:34531814} . Cần ph\^{a}n lo{\d{a}}i b{\^{\d{e}}}nh nh\^{a}n dựa tr{\^{e}}n t\`{\i}nh tr{\d{a}}ng ổn \text{\dj}\d{i}nh hoặc nghi ngờ bi{{\'{\^{e}}}}n chứng. \text{\DJ}ối với c\'{a}c ca cấp cứu, n{\^{\d{o}}}i soi n{\^{e}}n \text{\dj}ược thực hi{\^{\d{e}}}n sớm \text{\dj}ể x\'{a}c \text{\dj}\d{i}nh v\d{i} tr\'{\i} v\`{a} mức \text{\dj}{\^{\d{o}}} chảy m\'{a}u\unskip~\cite{2901310:34531814} .
+    
+\section*
+  {\textbf{\text{\DJ}\'{A}NH GI\'{A} TRƯỚC \text{\DJ}IỀU TR\d{I}:}}
+\textbf{N{\^{\d{o}}}i soi \text{\dj}ường ti{\^{e}}u h{\'{o}}a tr{\^{e}}n:} lu{\^o}n \text{\dj}ược chỉ \text{\dj}\d{i}nh cho những \text{\dj}ối tượng cao tuổi c{\'{o}} c\'{a}c tri{\^{\d{e}}}u chứng \text{\dj}au b\d{u}ng mới xuất hi{\^{\d{e}}}n v\`{\i} tỷ l{\^{\d{e}}} mắc c\'{a}c b{\^{\d{e}}}nh d{\d{a}} d\`{a}y nghi{\^{e}}m tr\d{o}ng ở nh{\'{o}}m tuổi n\`{a}y cao. N{\^{\d{o}}}i soi ti{\^{e}}u h{\'{o}}a tr{\^{e}}n l\`{a} an to\`{a}n v\`{a} dung n{\d{a}}p tốt ở người cao tuổi. Bằng c\'{a}ch nh{\^{\d{a}}}n d{\d{a}}ng trực quan, v\d{i} tr\'{\i} v\`{a} k\'{\i}ch thước của v{{\'{\^{e}}}}t lo{\'e}t c{\'{o}} thể \text{\dj}ược m{\^o} tả. Lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng l\`{a} m{\^{\d{o}}}t khi{{\'{\^{e}}}}m khuy{{\'{\^{e}}}}t ni{\^{e}}m m{\d{a}}c h\`{\i}nh tr\`{o}n \text{\dj}{{\'{\^{e}}}}n h\`{\i}nh bầu d\d{u}c, \text{\dj}ường k\'{\i}nh từ 5 mm \text{\dj}{{\'{\^{e}}}}n 4 cm, \text{\dj}\'{a}y nhẵn, bờ vu{\^o}ng g{\'{o}}c. M{\^{\d{o}}}t lo{\d{a}}t mẫu sinh thi{{\'{\^{e}}}}t \text{\dj}ể lo{\d{a}}i trừ khối u~\'{a}c t\'{\i}nh l\`{a} bắt bu{\^{\d{o}}}c ở cả v\d{i} tr\'{\i} trung t\^{a}m v\`{a} r\`{\i}a của v{{\'{\^{e}}}}t lo{\'e}t d{\d{a}} d\`{a}y, ngay cả khi ch\'{u}ng kh{\^o}ng nh{\^o} cao hoặc kh{\^o}ng \text{\dj}ều như ở d{\d{a}}ng lo{\'e}t của ung thư d{\d{a}} d\`{a}y ti{{\'{\^{e}}}}n triển. Sinh thi{{\'{\^{e}}}}t d{\d{a}} d\`{a}y gi\'{u}p x\'{a}c \text{\dj}\d{i}nh sự hi{\^{\d{e}}}n di{\^{\d{e}}}n v\`{a} mức \text{\dj}{\^{\d{o}}} nghi{\^{e}}m tr\d{o}ng của vi{\^{e}}m d{\d{a}} d\`{a}y m{\d{a}}n t\'{\i}nh v\`{a}/hoặc sự hi{\^{\d{e}}}n di{\^{\d{e}}}n của nhi{\~{\^e}}m H pylori. Sự l\`{a}nh tổn thương qua n{\^{\d{o}}}i soi l\`{a} ti{\^{e}}u chuẩn v\`{a}ng \text{\dj}ể \text{\dj}\'{a}nh gi\'{a} th\`{a}nh c{\^o}ng \text{\dj}iều tr\d{i} trong c\'{a}c thử nghi{\^{\d{e}}}m l\^{a}m s\`{a}ng. Ni{\^{e}}m m{\d{a}}c xung quanh c{\'{o}} thể xuất hi{\^{\d{e}}}n c\'{a}c n{{\'{\^{e}}}}p gấp h\`{\i}nh tia, do h{\^{\d{a}}}u quả của s\d{e}o v\`{u}ng \text{\dj}ỉnh\unskip~\cite{2901310:34531806}\ensuremath{^{}}.
+
+Ở người cao tuổi b\d{i} vi{\^{e}}m lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng, chẩn \text{\dj}o\'{a}n h\`{\i}nh ảnh \text{\dj}{\'{o}}ng vai tr\`{o} quan tr\d{o}ng trong \text{\dj}\'{a}nh gi\'{a} c{\u{a}}n nguy{\^{e}}n v\`{a} xử tr\'{\i} c\'{a}c bi{{\'{\^{e}}}}n chứng, \text{\dj}ặc bi{\^{\d{e}}}t khi b{\^{\d{e}}}nh di{\~{\^e}}n ti{{\'{\^{e}}}}n nặng hoặc kh{\^o}ng \text{\dj}\'{a}p ứng với \text{\dj}iều tr\d{i} n{\^{\d{o}}}i soi\unskip~\cite{2901310:34531813} . Ch\d{u}p X quang d{\d{a}} d\`{a}y v\`{a} t\'{a} tr\`{a}ng bằng barium\textbf{\space }\text{\dj}ược chỉ \text{\dj}\d{i}nh như m{\^{\d{o}}}t phần \text{\dj}\'{a}nh gi\'{a} bước hai cho b{\^{\d{e}}}nh nh\^{a}n nghi ngờ rối lo{\d{a}}n v{\^{\d{a}}}n \text{\dj}{\^{\d{o}}}ng, h\d{e}p m{\^o}n v\d{i} hoặc r\`{o} trong \text{\dj}{\'{o}} gastrografin c{\'{o}} thể \text{\dj}ược sử d\d{u}ng thay th{{\'{\^{e}}}} cho barium trong c\'{a}c nghi{\^{e}}n cứu tương phản. Ch\d{u}p X quang bằng barium chống chỉ \text{\dj}\d{i}nh khi c{\'{o}} chảy m\'{a}u, n{\^o}n mửa nặng, c{\'{o}} nguy cơ h\'{\i}t sặc v\`{a}o phổi cao hoặc trong trường hợp nghi ngờ thủng d{\d{a}} d\`{a}y hoặc t\'{a} tr\`{a}ng. N{{\'{\^{e}}}}u v{{\'{\^{e}}}}t lo{\'e}t thủng, kh{\^o}ng kh\'{\i} sẽ r\`{o} rỉ từ b{\^{e}}n trong \text{\dj}ường ti{\^{e}}u h{\'{o}}a v\`{a}o khoang ph\'{u}c m{\d{a}}c. \text{\DJ}iều n\`{a}y dẫn \text{\dj}{{\'{\^{e}}}}n ``kh\'{\i} tự do'' trong khoang ph\'{u}c m{\d{a}}c c{\'{o}} thể \text{\dj}ược quan s\'{a}t thấy b{\^{e}}n dưới cơ ho\`{a}nh khi ch\d{u}p X-quang b\d{u}ng thẳng hoặc nằm ngửa\unskip~\cite{2901310:34531806}
+
+Trong bối cảnh xuất huy{{\'{\^{e}}}}t ti{\^{e}}u h{\'{o}}a kh\'{a}ng tr\d{i}, X-quang can thi{\^{\d{e}}}p \text{\dj}ặc bi{\^{\d{e}}}t l\`{a} kỹ thu{\^{\d{a}}}t tắc m{\d{a}}ch qua \text{\dj}ường ống th{\^o}ng, \text{\dj}ược xem l\`{a} lựa ch\d{o}n hi{\^{\d{e}}}u quả v\`{a} an to\`{a}n thay th{{\'{\^{e}}}} phẫu thu{\^{\d{a}}}t, với tỷ l{\^{\d{e}}} tử vong v\`{a} bi{{\'{\^{e}}}}n chứng tương \text{\dj}ương. Ngo\`{a}i ra, chẩn \text{\dj}o\'{a}n h\`{\i}nh ảnh m{\d{a}}ch m\'{a}u c{\'{o}} vai tr\`{o} then chốt trong ph\'{a}t hi{\^{\d{e}}}n lo{\'e}t do thi{{\'{\^{e}}}}u m\'{a}u c\d{u}c b{\^{\d{o}}}, th{\^o}ng qua \text{\dj}\'{a}nh gi\'{a} h\d{e}p hoặc tắc c\'{a}c \text{\dj}{\^{\d{o}}}ng m{\d{a}}ch t{\d{a}}ng v\`{a} m{\d{a}}c treo, từ \text{\dj}{\'{o}} \text{\dj}\d{i}nh hướng can thi{\^{\d{e}}}p t\'{a}i th{\^o}ng m{\d{a}}ch khi \text{\dj}iều tr\d{i} bảo tồn thất b{\d{a}}i. C\'{a}c phương ti{\^{\d{e}}}n h\`{\i}nh ảnh c{\~{u}}ng gi\'{u}p nh{\^{\d{a}}}n di{\^{\d{e}}}n những nguy{\^{e}}n nh\^{a}n hi{{\'{\^{e}}}}m gặp li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n thủ thu{\^{\d{a}}}t can thi{\^{\d{e}}}p m{\d{a}}ch hoặc x{\d{a}} tr\d{i} n{\^{\d{o}}}i b{\^{\d{o}}}, vốn c{\'{o}} thể g\^{a}y tổn thương lo{\'e}t do thi{{\'{\^{e}}}}u m\'{a}u hoặc ho{\d{a}}i tử ni{\^{e}}m m{\d{a}}c. Trong c\'{a}c bi{{\'{\^{e}}}}n chứng phức t{\d{a}}p như thủng hoặc h\d{e}p d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng, chẩn \text{\dj}o\'{a}n h\`{\i}nh ảnh hỗ trợ \text{\dj}\'{a}nh gi\'{a} mức \text{\dj}{\^{\d{o}}} tổn thương v\`{a} \text{\dj}\d{i}nh hướng chi{{\'{\^{e}}}}n lược \text{\dj}iều tr\d{i}, g{\'{o}}p phần n\^{a}ng cao hi{\^{\d{e}}}u quả quản l\'{y} b{\^{\d{e}}}nh lo{\'e}t ở nh{\'{o}}m b{\^{\d{e}}}nh nh\^{a}n cao tuổi c{\'{o}} nguy cơ cao\unskip~\cite{2901310:34531813,2901310:34531814} .
+
+\textbf{C\'{a}c x{\'e}t nghi{\^{\d{e}}}m chẩn \text{\dj}o\'{a}n nhi{\~{\^e}}m Helicobacter pylori (H} \textbf{pylori)}
+
+C\'{a}c phương ph\'{a}p chẩn \text{\dj}o\'{a}n Helicobacter pylori \text{\dj}ược chia th\`{a}nh x\^{a}m lấn v\`{a} kh{\^o}ng x\^{a}m lấn. C\'{a}c phương ph\'{a}p x\^{a}m lấn bao gồm n{\^{\d{o}}}i soi k{{\'{\^{e}}}}t hợp m{\^o} b{\^{\d{e}}}nh h\d{o}c, test nhanh ur{\^{e}} , nu{\^o}i cấy v\`{a} PCR từ mẫu sinh thi{{\'{\^{e}}}}t, trong \text{\dj}{\'{o}} m{\^o} b{\^{\d{e}}}nh h\d{o}c theo h{\^{\d{e}}} thống Sydney cải ti{{\'{\^{e}}}}n \text{\dj}ược xem l\`{a} ti{\^{e}}u chuẩn v\`{a}ng \text{\dj}ể \text{\dj}\'{a}nh gi\'{a} vi{\^{e}}m d{\d{a}} d\`{a}y li{\^{e}}n quan H. pylori\unskip~\cite{2901310:34531808,2901310:34531815} . Tuy nhi{\^{e}}n, ở người cao tuổi, \text{\dj}{\^{\d{o}}} nh{\d{a}}y của test nhanh ur{\^{e}} v\`{a} m{\^o} b{\^{\d{e}}}nh h\d{o}c giảm do m{\^{\d{a}}}t \text{\dj}{\^{\d{o}}} vi khuẩn thấp hoặc ph\^{a}n bố kh{\^o}ng \text{\dj}ồng \text{\dj}ều, \text{\dj}ặc bi{\^{\d{e}}}t trong bối cảnh vi{\^{e}}m teo d{\d{a}} d\`{a}y m{\d{a}}n t\'{\i}nh\unskip~\cite{2901310:34531816} . Nu{\^o}i cấy v\`{a} PCR c{\'{o}} vai tr\`{o} quan tr\d{o}ng trong c\'{a}c trường hợp \text{\dj}iều tr\d{i} thất b{\d{a}}i, \text{\dj}ặc bi{\^{\d{e}}}t \text{\dj}ể x\'{a}c \text{\dj}\d{i}nh t\`{\i}nh tr{\d{a}}ng kh\'{a}ng kh\'{a}ng sinh\unskip~\cite{2901310:34531808} .
+
+Trong nh{\'{o}}m phương ph\'{a}p kh{\^o}ng x\^{a}m lấn, test thở ur{\^{e}} \text{\dj}ược xem l\`{a} ti{\^{e}}u chuẩn v\`{a}ng với \text{\dj}{\^{\d{o}}} ch\'{\i}nh x\'{a}c cao, trong khi x{\'e}t nghi{\^{\d{e}}}m kh\'{a}ng nguy{\^{e}}n ph\^{a}n l\`{a} lựa ch\d{o}n thay th{{\'{\^{e}}}} hi{\^{\d{e}}}u quả khi kh{\^o}ng thể thực hi{\^{\d{e}}}n test thở ur{\^{e}}, x{\'e}t nghi{\^{\d{e}}}m huy{{\'{\^{e}}}}t thanh chỉ c{\'{o}} gi\'{a} tr\d{i} trong nghi{\^{e}}n cứu d\d{i}ch t{\~{\^e}} do kh{\^o}ng ph\^{a}n bi{\^{\d{e}}}t \text{\dj}ược nhi{\~{\^e}}m hi{\^{\d{e}}}n t{\d{a}}i hay \text{\dj}{\~{a}} nhi{\~{\^e}}m\unskip~\cite{2901310:34531808,2901310:34531813,2901310:34531815} . \text{\DJ}ể tr\'{a}nh k{{\'{\^{e}}}}t quả \^{a}m t\'{\i}nh giả, cần ngưng thuốc ức ch{{\'{\^{e}}}} bơm proton, kh\'{a}ng sinh v\`{a} bismuth trước khi x{\'e}t nghi{\^{\d{e}}}m. Trong bối cảnh xuất huy{{\'{\^{e}}}}t ti{\^{e}}u h{\'{o}}a, \text{\dj}{\^{\d{o}}} nh{\d{a}}y của hầu h{{\'{\^{e}}}}t c\'{a}c phương ph\'{a}p chẩn \text{\dj}o\'{a}n giảm v\`{a} PCR \text{\dj}ược xem l\`{a} phương ph\'{a}p nh{\d{a}}y nhất. Vi{\^{\d{e}}}c \text{\dj}\'{a}nh gi\'{a} hi{\^{\d{e}}}u quả di{\^{\d{e}}}t trừ H. pylori n{\^{e}}n \text{\dj}ược thực hi{\^{\d{e}}}n \'{\i}t nhất 4 tuần sau \text{\dj}iều tr\d{i} bằng test thở ur{\^{e}} hoặc x{\'e}t nghi{\^{\d{e}}}m kh\'{a}ng nguy{\^{e}}n ph\^{a}n \text{\dj}ơn d\`{o}ng\unskip~\cite{2901310:34531815}\ensuremath{^{}} (Bảng 1).
+
+Ngo\`{a}i ra, v\d{i} tr\'{\i} sinh thi{{\'{\^{e}}}}t cần \text{\dj}ược lựa ch\d{o}n cẩn th{\^{\d{a}}}n ở người cao tuổi, v\`{\i} H. pylori c{\'{o}} thể chỉ c\`{o}n hi{\^{\d{e}}}n di{\^{\d{e}}}n ở th\^{a}n v\d{i} hoặc ph\`{\i}nh v\d{i} m\`{a} kh{\^o}ng c\`{o}n ở hang v\d{i} ở những b{\^{\d{e}}}nh nh\^{a}n \text{\dj}ang d\`{u}ng thuốc kh\'{a}ng ti{{\'{\^{e}}}}t. Tương tự, vi{\^{e}}m teo d{\d{a}} d\`{a}y m{\d{a}}n t\'{\i}nh do nhi{\~{\^e}}m H. pylori trong qu\'{a} khứ c{\'{o}} thể l\`{a}m giảm tỷ l{\^{\d{e}}} ph\'{a}t hi{\^{\d{e}}}n vi khuẩn trong c\'{a}c mẫu sinh thi{{\'{\^{e}}}}t d{\d{a}} d\`{a}y ở người cao tuổi so với b{\^{\d{e}}}nh nh\^{a}n trẻ, g{\'{o}}p phần l\`{a}m giảm \text{\dj}{\^{\d{o}}} nh{\d{a}}y của test nhanh ure ở nh{\'{o}}m \ensuremath{\geq }65 tuổi\unskip~\cite{2901310:34531806} .
+
+
+\begin{sidewaystable*}
+\caption{{C\'{a}c x{\'e}t nghi{\^{\d{e}}}m chẩn \text{\dj}o\'{a}n nhi{\~{\^e}}m H.pylori\ensuremath{^{1}}\textit{ (Nguồn: Pilotto A FM. Upper Gastrointestinal Disorders. Hazzard's Geriatric Medicineand Gerontology, 8th edition, 2022. McGraw Hill)\ensuremath{^{1}}}} }
+\label{table-wrap-23b2b5f16b4d4aa9936857bfb3af7aa0}\Xbox{%
+\fontsize{8pt}{10pt}\selectfont 
+\def\arraystretch{1.5} 
+\ignorespaces 
+\centering 
+\begin{tabulary}{\linewidth}{LLL}
+\hline \rowcolor{tableheadrcolor}
+\textbf{X{\'e}t nghi{\^{\d{e}}}m} &
+  \textbf{Chẩn \text{\dj}o\'{a}n} &
+  \textbf{H{\d{a}}n ch{{\'{\^{e}}}}}\\\rowcolor{unitednationsblue}
+\textbf{M{\^o} h\d{o}c} &
+  \ensuremath{\bullet}  \text{\DJ}{\^{\d{o}}} nh{\d{a}}y v\`{a} \text{\dj}{\^{\d{o}}} \text{\dj}ặc hi{\^{\d{e}}}u cao (95\%-98\%)  \mbox{}\protect\newline \ensuremath{\bullet}  Cho bi{{\'{\^{e}}}}t sự hi{\^{\d{e}}}n di{\^{\d{e}}}n v\`{a} \text{\dj}{\^{\d{o}}} nặng của vi{\^{e}}m d{\d{a}} d\`{a}y do Hp ở c\'{a}c v\d{i} tr\'{\i} kh\'{a}c nhau của d{\d{a}} d\`{a}y &
+   \ensuremath{\bullet}  X\^{a}m lấn (y{\^{e}}u cầu phải n{\^{\d{o}}}i soi) \mbox{}\protect\newline  \ensuremath{\bullet}  \text{\DJ}{\^{\d{o}}} nhay giảm khi d\`{u}ng PPI v\`{a} khi \text{\dj}ang b\d{i} chảy m\'{a}u do lo{\'e}t. \mbox{}\protect\newline  \ensuremath{\bullet}  K{{\'{\^{e}}}}t quả kh\'{a}c nhau t\`{u}y người quan s\'{a}t \mbox{}\protect\newline  \ensuremath{\bullet}  Sự ph\^{a}n bố kh{\^o}ng \text{\dj}ồng \text{\dj}ều của Hp ở những v\`{u}ng kh\'{a}c nhau của d{\d{a}} d\`{a}y\\\rowcolor{unitednationsblue}
+\textbf{Test } \textbf{Ur{\^{e}} nhanh} &
+   \ensuremath{\bullet}  Nhanh (trong 1 giờ) \mbox{}\protect\newline  \ensuremath{\bullet}  \text{\DJ}{\^{\d{o}}} nh{\d{a}}y v\`{a} \text{\dj}{\^{\d{o}}} \text{\dj}ặc hi{\^{\d{e}}}u cao (90\%-95\%) &
+   \ensuremath{\bullet}  X\^{a}m lấn (y{\^{e}}u cầu phải n{\^{\d{o}}}i soi) \mbox{}\protect\newline  \ensuremath{\bullet}  \^{A}m t\'{\i}nh giả khi c{\'{o}} t\`{\i}nh tr{\d{a}}ng xuất huy{{\'{\^{e}}}}t ti{\^{e}}u h{\'{o}}a tr{\^{e}}n cấp t\'{\i}nh, d\`{u}ng PPI, kh\'{a}ng sinh, Bismuth, {\ldots}\\\rowcolor{unitednationsblue}
+\textbf{Nu{\^o}i cấy} &
+   \ensuremath{\bullet}  \text{\DJ}{\^{\d{o}}} \text{\dj}ặc hi{\^{\d{e}}}u cao \ensuremath{\bullet}  D\`{u}ng test \text{\dj}{\^{\d{o}}} nh{\d{a}}y cảm với kh\'{a}ng sinh (kh\'{a}ng sinh \text{\dj}ồ) &
+   \ensuremath{\bullet}  X\^{a}m lấn (y{\^{e}}u cầu phải n{\^{\d{o}}}i soi) \ensuremath{\bullet}  K{{\'{\^{e}}}}t quả c{\'{o}} mu{\^{\d{o}}}n ({\textgreater} 7 ng\`{a}y) \ensuremath{\bullet}  Kh{\'{o}} nu{\^o}i cấy (\text{\dj}{\^{\d{o}}} nh{\d{a}}y thấp)\\\rowcolor{unitednationsblue}
+\textbf{Huy{{\'{\^{e}}}}t thanh chẩn \text{\dj}o\'{a}n} &
+   \ensuremath{\bullet}  D{\~{\^e}} thực hi{\^{\d{e}}}n \mbox{}\protect\newline  \ensuremath{\bullet}  Tần suất nhi{\~{\^e}}m Hp ở \text{\dj}\d{i}a phương ảnh hưởng \text{\dj}{{\'{\^{e}}}}n gi\'{a} tr\d{i} ti{\^{e}}n \text{\dj}o\'{a}n dương của test kh\'{a}ng thể &
+   \ensuremath{\bullet}  \text{\DJ}{\^{\d{o}}} nh{\d{a}}y v\`{a} \text{\dj}{\^{\d{o}}} \text{\dj}ặc hi{\^{\d{e}}}u thấp (79\%-85\%) \mbox{}\protect\newline  \ensuremath{\bullet}  Kh{\^o}ng ch\'{\i}nh x\'{a}c ở người lớn tuổi \mbox{}\protect\newline  \ensuremath{\bullet}  Kh{\^o}ng thể ph\^{a}n bi{\^{\d{e}}}t hi{\^{\d{e}}}n t{\d{a}}i c\`{o}n \text{\dj}ang nhi{\~{\^e}}m hay \text{\dj}{\~{a}} từng nhi{\~{\^e}}m.\\\rowcolor{unitednationsblue}
+\textbf{T\`{\i}m kh\'{a}ng nguy{\^{e}}n Hp trong ph\^{a}n} &
+   \ensuremath{\bullet}  Kh{\^o}ng x\^{a}m lấn \mbox{}\protect\newline  \ensuremath{\bullet}  \text{\DJ}{\^{\d{o}}} nh{\d{a}}y v\`{a} \text{\dj}{\^{\d{o}}} \text{\dj}ặc hi{\^{\d{e}}}u cao (94\%-97\%) \mbox{}\protect\newline  \ensuremath{\bullet}  Cho bi{{\'{\^{e}}}}t t\`{\i}nh tr{\d{a}}ng nhi{\~{\^e}}m Hp \text{\dj}ang ho{\d{a}}t \text{\dj}{\^{\d{o}}}ng \mbox{}\protect\newline  \ensuremath{\bullet}  Hữu \'{\i}ch trong vi{\^{\d{e}}}c tầm so\'{a}t sau ti{\^{\d{e}}}t trừ Hp &
+   \ensuremath{\bullet}  Kh{\^o}ng ph\`{u} hợp ở m{\^{\d{o}}}t số b{\^{\d{e}}}nh nh\^{a}n \mbox{}\protect\newline  \ensuremath{\bullet}  T\`{\i}nh tr{\d{a}}ng \text{\dj}ang chảy m\'{a}u sẽ l\`{a}m giảm \text{\dj}{\^{\d{o}}} \text{\dj}ặc hi{\^{\d{e}}}u (kh{\^o}ng l\`{a}m giảm \text{\dj}{\^{\d{o}}} nh{\d{a}}y)\\\rowcolor{unitednationsblue}
+\textbf{Test hơi thở }\textbf{\ensuremath{^{13}}} \textbf{C} &
+   \ensuremath{\bullet}  Kh{\^o}ng x\^{a}m lấn \mbox{}\protect\newline  \ensuremath{\bullet}  \text{\DJ}{\^{\d{o}}} nh{\d{a}}y v\`{a} \text{\dj}{\^{\d{o}}} \text{\dj}ặc hi{\^{\d{e}}}u cao (91\%-92\%) \mbox{}\protect\newline  \ensuremath{\bullet}  Cho bi{{\'{\^{e}}}}t t\`{\i}nh tr{\d{a}}ng nhi{\~{\^e}}m Hp \text{\dj}ang ho{\d{a}}t \text{\dj}{\^{\d{o}}}ng \mbox{}\protect\newline  \ensuremath{\bullet}  Hữu \'{\i}ch trong vi{\^{\d{e}}}c tầm so\'{a}t sau ti{\^{\d{e}}}t trừ Hp &
+   \ensuremath{\bullet}  \^{A}m t\'{\i}nh giả khi c{\'{o}} t\`{\i}nh tr{\d{a}}ng xuất huy{{\'{\^{e}}}}t ti{\^{e}}u h{\'{o}}a tr{\^{e}}n cấp t\'{\i}nh, d\`{u}ng PPI, kh\'{a}ng sinh, Bismuth, {\ldots}\\
+\hline 
+\end{tabulary}\par 
+}
+\end{sidewaystable*}
+Sự hi{\^{\d{e}}}n di{\^{\d{e}}}n v\`{a} mức \text{\dj}{\^{\d{o}}} nghi{\^{e}}m tr\d{o}ng của vi{\^{e}}m d{\d{a}} d\`{a}y \text{\dj}{\~{a}} \text{\dj}ược chứng minh về mặt m{\^o} h\d{o}c c{\'{o}} thể \text{\dj}ược nghi{\^{e}}n cứu th{\^o}ng qua vi{\^{\d{e}}}c \text{\dj}\'{a}nh gi\'{a} m{\^o} h\d{o}c về c\'{a}c th{\^o}ng số h\`{\i}nh th\'{a}i của ni{\^{e}}m m{\d{a}}c d{\d{a}} d\`{a}y ở hai v\d{i} tr\'{\i}. Tất cả những ph\'{a}t hi{\^{\d{e}}}n n\`{a}y cho thấy rằng ở người cao tuổi (1) n{\^{e}}n thực hi{\^{\d{e}}}n sinh thi{{\'{\^{e}}}}t d{\d{a}} d\`{a}y từ cả hang v\d{i} v\`{a} th\^{a}n v\d{i} d{\d{a}} d\`{a}y v\`{a} (2) n{\^{e}}n thực hi{\^{\d{e}}}n x{\'e}t nghi{\^{\d{e}}}m H. pylori lần thứ hai ở nh{\'{o}}m tuổi n\`{a}y n{{\'{\^{e}}}}u x{\'e}t nghi{\^{\d{e}}}m m{\^o} h\d{o}c hoặc dựa tr{\^{e}}n ur{\^{e}} \^{a}m t\'{\i}nh\unskip~\cite{2901310:34531806} .
+
+\textbf{\text{\DJ}\'{a}nh gi\'{a} sau khi ti{\^{\d{e}}}t trừ H} \textbf{pylori}
+
+Vi{\^{\d{e}}}c ti{\^{\d{e}}}t trừ th\`{a}nh c{\^o}ng phải lu{\^o}n \text{\dj}ược x\'{a}c nh{\^{\d{a}}}n bằng x{\'e}t nghi{\^{\d{e}}}m kh{\^o}ng x\^{a}m lấn hoặc x\^{a}m lấn n{{\'{\^{e}}}}u n{\^{\d{o}}}i soi \text{\dj}ược chỉ \text{\dj}\d{i}nh l\^{a}m s\`{a}ng. B{\^{\d{e}}}nh nh\^{a}n cao tuổi \text{\dj}ược chẩn \text{\dj}o\'{a}n lo{\'e}t ti{\^{e}}u h{\'{o}}a tr{\^{e}}n (\text{\dj}ặc bi{\^{\d{e}}}t l\`{a} lo{\'e}t d{\d{a}} d\`{a}y), u~MALT, ung thư h{\d{a}}ch hoặc vi{\^{e}}m d{\d{a}} d\`{a}y nặng n{\^{e}}n \text{\dj}ược \text{\dj}\'{a}nh gi\'{a} bằng n{\^{\d{o}}}i soi v\`{a} m{\^o} h\d{o}c sau khi ho\`{a}n th\`{a}nh li{\^{\d{e}}}u ph\'{a}p ti{\^{\d{e}}}t trừ H. pylori. Hầu h{{\'{\^{e}}}}t c\'{a}c chuy{\^{e}}n gia \text{\dj}ều \text{\dj}ồng \'{y} rằng vi{\^{\d{e}}}c \text{\dj}\'{a}nh gi\'{a} n\`{a}y phải \text{\dj}ược thực hi{\^{\d{e}}}n \'{\i}t nhất 1 th\'{a}ng sau khi ho\`{a}n th\`{a}nh \text{\dj}iều tr\d{i} \text{\dj}ể giảm thiểu k{{\'{\^{e}}}}t quả \^{a}m t\'{\i}nh giả. B{\^{\d{e}}}nh nh\^{a}n cao tuổi b\d{i} vi{\^{e}}m d{\d{a}} d\`{a}y m{\d{a}}n t\'{\i}nh nh\d{e} hoặc trung b\`{\i}nh c{\'{o}} thể \text{\dj}ược \text{\dj}\'{a}nh gi\'{a} sau khi \text{\dj}iều tr\d{i} bằng x{\'e}t nghi{\^{\d{e}}}m kh{\^o}ng x\^{a}m lấn. X{\'e}t nghi{\^{\d{e}}}m hơi thở \ensuremath{^{13}}C-ur{\^{e}} cho thấy \text{\dj}{\^{\d{o}}} nh{\d{a}}y, \text{\dj}{\^{\d{o}}} \text{\dj}ặc hi{\^{\d{e}}}u v\`{a} \text{\dj}{\^{\d{o}}} ch\'{\i}nh x\'{a}c chẩn \text{\dj}o\'{a}n cao hơn so với huy{{\'{\^{e}}}}t thanh h\d{o}c (kh\'{a}ng thể IgG kh\'{a}ng H. pylori) ở những \text{\dj}ối tượng cao tuổi. X{\'e}t nghi{\^{\d{e}}}m t\`{\i}m kh\'{a}ng nguy{\^{e}}n H pylori trong ph\^{a}n (HpSA) \text{\dj}ể ph\'{a}t hi{\^{\d{e}}}n H. pylori \text{\dj}{\~{a}} \text{\dj}ược \text{\dj}ề xuất như m{\^{\d{o}}}t lựa ch\d{o}n c{\'{o}} gi\'{a} tr\d{i} với vai tr\`{o} tiềm n{\u{a}}ng cao trong chẩn \text{\dj}o\'{a}n sau khi \text{\dj}iều tr\d{i} ti{\^{\d{e}}}t trừ. Ở những b{\^{\d{e}}}nh nh\^{a}n cao tuổi b\d{i} suy y{{\'{\^{e}}}}u nh{\^{\d{a}}}p vi{\^{\d{e}}}n, HpSA k{\'e}m ch\'{\i}nh x\'{a}c hơn so với x{\'e}t nghi{\^{\d{e}}}m hơi thở ur{\^{e}} \ensuremath{^{13}}C\textbf{\ensuremath{^{1}}}.
+
+\textbf{C\'{a}c test kh{\^o}ng x\^{a}m lấn kh\'{a}c}
+
+Nồng \text{\dj}{\^{\d{o}}} pepsinogen I~v\`{a} II trong huy{{\'{\^{e}}}}t thanh (sPGI, sPGII), l\`{a} dấu ấn sinh h\d{o}c của t\`{\i}nh tr{\d{a}}ng vi{\^{e}}m, sẽ gia t{\u{a}}ng khi c{\'{o}} vi{\^{e}}m d{\d{a}} d\`{a}y kh{\^o}ng teo li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n H pylori. Nồng \text{\dj}{\^{\d{o}}} sPGII cao hơn ở những người b\d{i} lo{\'e}t d{\d{a}} d\`{a}y v\`{a} t\'{a} tr\`{a}ng v\`{a} mức \text{\dj}{\^{\d{o}}} tương quan với mức \text{\dj}{\^{\d{o}}} nghi{\^{e}}m tr\d{o}ng của t\`{\i}nh tr{\d{a}}ng vi{\^{e}}m. M{\^{\d{o}}}t nghi{\^{e}}n cứu ở người cao tuổi cho thấy nồng \text{\dj}{\^{\d{o}}} sPGII giảm \text{\dj}\'{a}ng kể sau khi \text{\dj}iều tr\d{i} th\`{a}nh c{\^o}ng vi khuẩn H. pylori. Hơn nữa, sPGI hoặc tỷ l{\^{\d{e}}} \text{\dj}o sPGI/sPGII c{\'{o}} thể hữu \'{\i}ch \text{\dj}ể x\'{a}c \text{\dj}\d{i}nh t\`{\i}nh tr{\d{a}}ng teo d{\d{a}} d\`{a}y ở v\`{u}ng th\^{a}n v\d{i}. C\'{a}c x{\'e}t nghi{\^{\d{e}}}m về gastrin (\text{\dj}ặc bi{\^{\d{e}}}t l\`{a} gastrin-17) c{\'{o}} thể l\`{a} m{\^{\d{o}}}t chỉ số về t\`{\i}nh tr{\d{a}}ng h\`{\i}nh th\'{a}i của ni{\^{e}}m m{\d{a}}c hang v\d{i}\unskip~\cite{2901310:34531816} .
+    
+\section*
+  {\textbf{\text{\DJ}IỀU TR\d{I}:}}
+Chi{{\'{\^{e}}}}n lược \text{\dj}iều tr\d{i} v\`{a} ti{\^{\d{e}}}t trừ Helicobacter pylori ở người cao tuổi cần \text{\dj}ược c\'{a} thể h{\'{o}}a, dựa tr{\^{e}}n b{\^{\d{e}}}nh \text{\dj}ồng mắc, nguy cơ tương t\'{a}c thuốc v\`{a} t\`{\i}nh tr{\d{a}}ng kh\'{a}ng kh\'{a}ng sinh. Hi{\^{\d{e}}}n nay, li{\^{\d{e}}}u ph\'{a}p 4 thuốc c{\'{o}} bismuth \text{\dj}ược xem l\`{a} lựa ch\d{o}n ưu ti{\^{e}}n h\`{a}ng \text{\dj}ầu trong \text{\dj}iều tr\d{i} theo kinh nghi{\^{\d{e}}}m, \text{\dj}ặc bi{\^{\d{e}}}t t{\d{a}}i c\'{a}c khu vực c{\'{o}} tỷ l{\^{\d{e}}} kh\'{a}ng clarithromycin cao, với thời gian \text{\dj}iều tr\d{i} 10{\textendash}14 ng\`{a}y\unskip~\cite{2901310:34531808,2901310:34531813,2901310:34531814} . Li{\^{\d{e}}}u ph\'{a}p sử d\d{u}ng vonoprazan (P-CAB) k{{\'{\^{e}}}}t hợp amoxicillin v\`{a} clarithromycin cho thấy tỷ l{\^{\d{e}}} di{\^{\d{e}}}t trừ {\textgreater}90\%, tương \text{\dj}ương hoặc vượt tr{\^{\d{o}}}i so với ph\'{a}c \text{\dj}ồ PPI truyền thống, v\`{a} l\`{a} lựa ch\d{o}n \text{\dj}ầy hứa h\d{e}n ở người cao tuổi\unskip~\cite{2901310:34531807,2901310:34531815} . Li{\^{\d{e}}}u ph\'{a}p liều cao k{\'e}p\textbf{\space }(amoxicillin liều cao phối hợp PPI m{\d{a}}nh hoặc vonoprazan) c{\'{o}} ưu \text{\dj}iểm \text{\dj}ơn giản, \'{\i}t t\'{a}c d\d{u}ng ph\d{u} v\`{a} duy tr\`{\i} hi{\^{\d{e}}}u quả di{\^{\d{e}}}t trừ cao, \text{\dj}ặc bi{\^{\d{e}}}t ph\`{u} hợp với b{\^{\d{e}}}nh nh\^{a}n cao tuổi suy nhược\unskip~\cite{2901310:34531807,2901310:34531815} .
+
+Mặc d\`{u} li{\^{\d{e}}}u ph\'{a}p 3 thuốc dựa tr{\^{e}}n PPI (PPI, clarithromycin v\`{a} amoxicillin hoặc nitroimidazole) từng \text{\dj}ược xem l\`{a} \text{\dj}iều tr\d{i} chuẩn, hi{\^{\d{e}}}u quả của ph\'{a}c \text{\dj}ồ n\`{a}y hi{\^{\d{e}}}n giảm t{\d{a}}i nhiều khu vực do t\`{\i}nh tr{\d{a}}ng kh\'{a}ng thuốc gia t{\u{a}}ng\unskip~\cite{2901310:34531808,2901310:34531813,2901310:34531815}\ensuremath{^{}}. Tuy nhi{\^{e}}n, c\'{a}c nghi{\^{e}}n cứu ở người cao tuổi cho thấy li{\^{\d{e}}}u ph\'{a}p 3 thuốc trong 7 ng\`{a}y vẫn \text{\dj}{\d{a}}t hi{\^{\d{e}}}u quả v\`{a} khả n{\u{a}}ng dung n{\d{a}}p tốt, với tỷ l{\^{\d{e}}} t\'{a}c d\d{u}ng ph\d{u} thấp, vi{\^{\d{e}}}c sử d\d{u}ng clarithromycin liều thấp (250 mg x 2 lần/ng\`{a}y) cho hi{\^{\d{e}}}u quả tương \text{\dj}ương liều chuẩn v\`{a} dung n{\d{a}}p tốt hơn\ensuremath{^1}. K{\'e}o d\`{a}i thời gian \text{\dj}iều tr\d{i} l{\^{e}}n 14 ng\`{a}y hoặc \'{a}p d\d{u}ng ph\'{a}c \text{\dj}ồ nối ti{{\'{\^{e}}}}p 10 ng\`{a}y\textbf{ c{\'{o}}} thể cải thi{\^{\d{e}}}n tỷ l{\^{\d{e}}} di{\^{\d{e}}}t trừ, d\`{u} dữ li{\^{\d{e}}}u chuy{\^{e}}n bi{\^{\d{e}}}t cho người cao tuổi c\`{o}n h{\d{a}}n ch{{\'{\^{e}}}}\unskip~\cite{2901310:34531806,2901310:34531817,2901310:34531818}\ensuremath{^{}}.
+
+Ở những trường hợp thất b{\d{a}}i \text{\dj}iều tr\d{i}, \text{\dj}ặc bi{\^{\d{e}}}t sau \ensuremath{\geq }2 ph\'{a}c \text{\dj}ồ\textbf{, }\text{\dj}iều tr\d{i} dựa tr{\^{e}}n kh\'{a}ng sinh \text{\dj}ồ (qua nu{\^o}i cấy hoặc kỹ thu{\^{\d{a}}}t ph\^{a}n tử như PCR) \text{\dj}ược khuy{{\'{\^{e}}}}n c\'{a}o \text{\dj}ể tối ưu h{\'{o}}a hi{\^{\d{e}}}u quả\textbf{\ensuremath{^1}\ensuremath{^\circ}}. Vi{\^{\d{e}}}c bổ sung probiotic gi\'{u}p giảm t\'{a}c d\d{u}ng ph\d{u} v\`{a} cải thi{\^{\d{e}}}n tu\^{a}n thủ \text{\dj}iều tr\d{i}, trong khi gi\'{a}m s\'{a}t chặt chẽ tương t\'{a}c thuốc l\`{a} cần thi{{\'{\^{e}}}}t ở người cao tuổi\unskip~\cite{2901310:34531807,2901310:34531813,2901310:34531814,2901310:34531815} . \text{\DJ}\'{a}nh gi\'{a} k{{\'{\^{e}}}}t quả di{\^{\d{e}}}t trừ H. pylori l\`{a} bắt bu{\^{\d{o}}}c v\`{a} n{\^{e}}n \text{\dj}ược thực hi{\^{\d{e}}}n \'{\i}t nhất 4 tuần sau khi k{{\'{\^{e}}}}t th\'{u}c kh\'{a}ng sinh bằng test thở ur{\^{e}} hoặc x{\'e}t nghi{\^{\d{e}}}m kh\'{a}ng nguy{\^{e}}n ph\^{a}n\unskip~\cite{2901310:34531813} .
+
+
+\begin{sidewaystable*}
+\caption{{K{{\'{\^{e}}}}t quả t\'{\i}ch l{\~{u}}y của c\'{a}c thử nghi{\^{\d{e}}}m l\^{a}m s\`{a}ng \text{\dj}\'{a}nh gi\'{a} ph\'{a}c \text{\dj}ồ ti{\^{\d{e}}}t trừ 3 thuốc, ph\'{a}c \text{\dj}ồ nối ti{{\'{\^{e}}}}p v\`{a} ph\'{a}c \text{\dj}ồ 4 thuốc \text{\dj}iều tr\d{i} ti{\^{\d{e}}}t trừ H pylori ở người cao tuổi. \textit{(Nguồn: Pilotto A FM. Upper Gastrointestinal Disorders. Hazzard's Geriatric Medicineand Gerontology, 8\ensuremath{^{th}} , 2022. McGraw Hill)\ensuremath{^{1}}}} }
+\label{table-wrap-74e2ba1ff59a4505bfa8ea1079969e68}\Xbox{%
+\fontsize{8pt}{10pt}\selectfont 
+\def\arraystretch{1.5} 
+\ignorespaces 
+\centering 
+\begin{tabulary}{\linewidth}{p{\dimexpr.3153\linewidth-2\tabcolsep}p{\dimexpr.1809\linewidth-2\tabcolsep}p{\dimexpr.0953\linewidth-2\tabcolsep}p{\dimexpr.10170000000000003\linewidth-2\tabcolsep}p{\dimexpr.3068\linewidth-2\tabcolsep}}
+\hline \rowcolor{tableheadrcolor}
+\multicolumn{1}{p{\dimexpr(.3153\linewidth-2\tabcolsep)}}{\multirow{2}{\linewidth}{}} &
+  \multicolumn{1}{p{\dimexpr(.1809\linewidth-2\tabcolsep)}}{\multirow{2}{\linewidth}{\textbf{B{\^{\d{e}}}nh nh\^{a}n (N)}}} &
+  \multicolumn{2}{p{\dimexpr(.19700000000000003\linewidth-2\tabcolsep)}}{\textbf{\text{\DJ}iều tr\d{i} ti{\^{\d{e}}}t trừ}} &
+  \multicolumn{1}{p{\dimexpr(.3068\linewidth-2\tabcolsep)}}{\multirow{2}{\linewidth}{\textbf{T\'{a}c d\d{u}ng ph\d{u} (\%)}}}\\\rowcolor{unitednationsblue}
+ &
+   &
+  \textbf{ITT} \textbf{(\%)} &
+  \textbf{PP} \textbf{(\%)} &
+  \\\rowcolor{unitednationsblue}
+\multicolumn{5}{p{\dimexpr(1\linewidth-2\tabcolsep)}}{\textbf{Ph\'{a}c \text{\dj}ồ b{\^{\d{o}}} ba}}\\\rowcolor{unitednationsblue}
+ PPI + C + M hoặc T &
+   296 &
+   88 &
+   91 &
+   3,4\\\rowcolor{unitednationsblue}
+ PPI + A*+ C &
+   253 &
+   84 &
+   89 &
+   7,1\\\rowcolor{unitednationsblue}
+ PPI + A* + M &
+   154 &
+   80 &
+   84 &
+   7,1\\\rowcolor{unitednationsblue}
+ PPI + A* + C &
+   90 &
+   80 &
+   83 &
+   12\\\rowcolor{unitednationsblue}
+\multicolumn{5}{p{\dimexpr(1\linewidth-2\tabcolsep)}}{\textbf{Ph\'{a}c \text{\dj}ồ nối ti{{\'{\^{e}}}}p}}\\\rowcolor{unitednationsblue}
+ PPI + A, PPI + C + T** &
+   89 &
+   94 &
+   97 &
+   10\\\rowcolor{unitednationsblue}
+\multicolumn{5}{p{\dimexpr(1\linewidth-2\tabcolsep)}}{\textbf{Ph\'{a}c \text{\dj}ồ 4 thuốc}}\\\rowcolor{unitednationsblue}
+ PPI + TE + M + BS &
+   95 &
+   91 &
+   95 &
+   28\\
+\hline 
+\end{tabulary}\par 
+}
+\end{sidewaystable*}
+\textbf{ITT} (The intention-to-treat): tỷ l{\^{\d{e}}} ti{\^{\d{e}}}t trừ \text{\dj}ược ph\^{a}n t\'{\i}ch theo \'{y} \text{\dj}\d{i}nh \text{\dj}iều tr\d{i} , \textbf{PP} (per-protocol): theo thi{{\'{\^{e}}}}t k{{\'{\^{e}}}} nghi{\^{e}}n cứu, \textbf{PPI}: thuốc ức ch{{\'{\^{e}}}} bơm proton, \textbf{C}: Clarithromycin, \textbf{M}: Metronidazole, \textbf{T}: Tinidazole, \textbf{A}: Amoxicilllin, \textbf{TE}: Tetracyclin, \textbf{BS}: Bismuth subcitrate
+
+\textbf{Liều PPI: }omeprazole 20mg x 2 lần/ng\`{a}y, lansoprazole 30mg x 2 lần/ng\`{a}y, pantoprazole 40mg x 2 lần/ng\`{a}y, esomeprazole 40mg x 2 lần/ng\`{a}y, rabeprazole 20mg x 2 lần/ng\`{a}y
+
+\textbf{Liều kh\'{a}ng sinh: }Amoxicillin 1g x 2 lần/ng\`{a}y, Clarithromycin 500 mg x 2 lần/ng\`{a}y, Metronidazole 500mg x 2 lần/ng\`{a}y (trong ph\'{a}c \text{\dj}ồ 4 thuốc l\`{a} 500mg x 3 lần/ng\`{a}y), Tinidazole 500mg x 2 lần/ng\`{a}y, Tetracyclin 500mg x 4 lần/ng\`{a}y, Bismuth subcitrate 240mg x 4 lần/ng\`{a}y
+
+** D\`{u}ng trong 5 ng\`{a}y
+
+Tu\^{a}n thủ k{\'e}m v\`{a} kh\'{a}ng kh\'{a}ng sinh l\`{a} 2 l\'{y} do ch\'{\i}nh dẫn \text{\dj}{{\'{\^{e}}}}n thất b{\d{a}}i \text{\dj}iều tr\d{i}. T\`{\i}nh tr{\d{a}}ng kh\'{a}ng thuốc ti{\^{e}}n ph\'{a}t với amoxicillin vẫn c\`{o}n hi{{\'{\^{e}}}}m gặp nhưng tần suất kh\'{a}ng clarithromycin \text{\dj}{\~{a}} \text{\dj}{\d{a}}t tỷ l{\^{\d{e}}} tr{\^{e}}n 70\% ở m{\^{\d{o}}}t số quốc gia trong \text{\dj}{\'{o}} c{\'{o}} Trung Quốc, gần 50\% ở Bồ \text{\DJ}\`{a}o Nha v\`{a} Iran v\`{a} khoảng 16\% ở Hoa Kỳ. Tỷ l{\^{\d{e}}} kh\'{a}ng Metronidazole dao \text{\dj}{\^{\d{o}}}ng từ 20\% \text{\dj}{{\'{\^{e}}}}n 30\% v\`{a} thường gặp hơn ở ph\d{u} nữ v\`{a} c\'{a}c nước \text{\dj}ang ph\'{a}t triển. C{\'{o}} sự \text{\dj}ồng thu{\^{\d{a}}}n trong vi{\^{\d{e}}}c sử d\d{u}ng clarithromycin v\`{a} metronidazole trong \text{\dj}iều tr\d{i} di{\^{\d{e}}}t trừ H pylori khi tỷ l{\^{\d{e}}} kh\'{a}ng kh\'{a}ng sinh lần lượt thấp hơn 15\% v\`{a} 40\%.
+
+V\`{\i} thất b{\d{a}}i \text{\dj}iều tr\d{i} thường li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n t\`{\i}nh tr{\d{a}}ng kh\'{a}ng kh\'{a}ng sinh thứ cấp n{\^{e}}n vi{\^{\d{e}}}c t\'{a}i \text{\dj}iều tr\d{i} l\'{y} tưởng nhất n{\^{e}}n \text{\dj}ược hướng dẫn bởi dữ li{\^{\d{e}}}u về t\'{\i}nh nh{\d{a}}y cảm với kh\'{a}ng sinh. V\`{\i} những th{\^o}ng tin như v{\^{\d{a}}}y thường kh{\^o}ng c{\'{o}} sẵn n{\^{e}}n vi{\^{\d{e}}}c lựa ch\d{o}n phương ph\'{a}p \text{\dj}iều tr\d{i} b{\^{\d{a}}}c hai ph\d{u} thu{\^{\d{o}}}c v\`{a}o phương ph\'{a}p \text{\dj}iều tr\d{i} n\`{a}o \text{\dj}ược sử d\d{u}ng ban \text{\dj}ầu. Th{\^{\d{a}}}t v{\^{\d{a}}}y, vi{\^{\d{e}}}c ti{\^{\d{e}}}t trừ H pylori kh{\'{o}} kh{\u{a}}n hơn khi lần \text{\dj}iều tr\d{i} \text{\dj}ầu ti{\^{e}}n thất b{\d{a}}i v\`{a} chi{{\'{\^{e}}}}n lược \text{\dj}iều tr\d{i} tối ưu vẫn chưa \text{\dj}ược thi{{\'{\^{e}}}}t l{\^{\d{a}}}p ở những b{\^{\d{e}}}nh nh\^{a}n cao tuổi. V\`{\i} v{\^{\d{a}}}y, n{\^{e}}n giới thi{\^{\d{e}}}u chuy{\^{e}}n khoa ti{\^{e}}u h{\'{o}}a trong t\`{\i}nh huống n\`{a}y.
+
+\textbf{Lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng li{\^{e}}n quan NSAID v\`{a} Thuốc chống \text{\dj}{\^o}ng}
+
+Vi{\^{\d{e}}}c quản l\'{y} thuốc chống vi{\^{e}}m kh{\^o}ng steroid (NSAID) v\`{a} thuốc chống \text{\dj}{\^o}ng ở người cao tuổi b\d{i} lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng \text{\dj}\`{o}i hỏi sự c\^{a}n bằng giữa nguy cơ xuất huy{{\'{\^{e}}}}t ti{\^{e}}u h{\'{o}}a v\`{a} nguy cơ huy{{\'{\^{e}}}}t khối. 
+
+\textbf{Quản l\'{y} v\`{a} \text{\dj}iều tr\d{i} khi c{\'{o}} ổ lo{\'e}t do NSAID}
+
+Khi ph\'{a}t hi{\^{\d{e}}}n ổ lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng, bi{\^{\d{e}}}n ph\'{a}p ưu ti{\^{e}}n h\`{a}ng \text{\dj}ầu l\`{a} ngừng sử d\d{u}ng NSAID, v\`{\i} vi{\^{\d{e}}}c r\'{u}t thuốc l\`{a}m t{\u{a}}ng \text{\dj}\'{a}ng kể tỷ l{\^{\d{e}}} l\`{a}nh lo{\'e}t. Trong trường hợp b{\^{\d{e}}}nh nh\^{a}n vẫn cần \text{\dj}iều tr\d{i} chống vi{\^{e}}m, c{\'{o}} thể chuyển sang thuốc ức ch{{\'{\^{e}}}} ch\d{o}n l\d{o}c COX-2 (như celecoxib) do nguy cơ g\^{a}y lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng thấp hơn so với NSAID kh{\^o}ng ch\d{o}n l\d{o}c. N{{\'{\^{e}}}}u kh{\^o}ng thể ngừng NSAID, phối hợp thuốc ức ch{{\'{\^{e}}}} bơm proton (PPI) l\`{a} lựa ch\d{o}n \text{\dj}iều tr\d{i} \text{\dj}ầu tay, với hi{\^{\d{e}}}u quả chữa l\`{a}nh lo{\'e}t vượt tr{\^{\d{o}}}i so với thuốc \text{\dj}ối kh\'{a}ng th\d{u} thể H\ensuremath{_{2}} hoặc c\'{a}c dẫn xuất prostaglandin. \text{\DJ}ối với lo{\'e}t li{\^{e}}n quan aspirin liều thấp, khuy{{\'{\^{e}}}}n c\'{a}o ti{{\'{\^{e}}}}p t\d{u}c aspirin k{{\'{\^{e}}}}t hợp PPI thay v\`{\i} ngừng aspirin, nhằm giảm nguy cơ tử vong v\`{a} c\'{a}c bi{{\'{\^{e}}}}n cố tim m{\d{a}}ch do ngưng \text{\dj}iều tr\d{i} kh\'{a}ng k{{\'{\^{e}}}}t t{\^{\d{a}}}p tiểu cầu\unskip~\cite{2901310:34531813,2901310:34531814} .
+
+\textbf{Quản l\'{y} thuốc chống \text{\dj}{\^o}ng v\`{a} kh\'{a}ng k{{\'{\^{e}}}}t t{\^{\d{a}}}p tiểu cầu khi c{\'{o}} xuất huy{{\'{\^{e}}}}t}
+
+Ở b{\^{\d{e}}}nh nh\^{a}n lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng c{\'{o}} xuất huy{{\'{\^{e}}}}t \text{\dj}ang sử d\d{u}ng thuốc kh\'{a}ng \text{\dj}{\^o}ng v\`{a} kh\'{a}ng k{{\'{\^{e}}}}t t{\^{\d{a}}}p tiểu cầu, cần \text{\dj}\'{a}nh gi\'{a} c\^{a}n bằng giữa nguy cơ t\'{a}i chảy m\'{a}u v\`{a} nguy cơ huy{{\'{\^{e}}}}t khối (như nhồi m\'{a}u cơ tim hoặc \text{\dj}{\^{\d{o}}}t qu\d{y}), với sự phối hợp chặt chẽ giữa b\'{a}c s{\~{\i}} ti{\^{e}}u h{\'{o}}a v\`{a} tim m{\d{a}}ch. \text{\DJ}ối với thuốc kh\'{a}ng k{{\'{\^{e}}}}t t{\^{\d{a}}}p tiểu cầu, khuy{{\'{\^{e}}}}n c\'{a}o ti{{\'{\^{e}}}}p t\d{u}c aspirin ở những b{\^{\d{e}}}nh nh\^{a}n c{\'{o}} nguy cơ huy{{\'{\^{e}}}}t khối cao, trong khi c{\'{o}} thể t{\d{a}}m ngưng c\'{a}c thuốc kh\'{a}ng k{{\'{\^{e}}}}t t{\^{\d{a}}}p tiểu cầu kh\'{a}c, trừ trường hợp nguy cơ huy{{\'{\^{e}}}}t khối rất cao. Ở b{\^{\d{e}}}nh nh\^{a}n \text{\dj}ang d\`{u}ng li{\^{\d{e}}}u ph\'{a}p kh\'{a}ng k{{\'{\^{e}}}}t t{\^{\d{a}}}p tiểu cầu k{\'e}p, n{\^{e}}n duy tr\`{\i} aspirin \text{\dj}ơn tr\d{i} li{\^{\d{e}}}u. \text{\DJ}ối với thuốc chống \text{\dj}{\^o}ng, warfarin n{\^{e}}n \text{\dj}ược t{\d{a}}m ngừng \text{\dj}ể ti{{\'{\^{e}}}}n h\`{a}nh cầm m\'{a}u n{\^{\d{o}}}i soi v\`{a} \text{\dj}ược d\`{u}ng l{\d{a}}i sớm hoặc chuyển sang heparin sau khi \text{\dj}{\d{a}}t \text{\dj}ược cầm m\'{a}u ổn \text{\dj}\d{i}nh. Với thuốc chống \text{\dj}{\^o}ng \text{\dj}ường uống trực ti{{\'{\^{e}}}}p (DOACs), khuy{{\'{\^{e}}}}n c\'{a}o t\'{a}i sử d\d{u}ng sớm trong v\`{o}ng 1{\textendash}2 ng\`{a}y sau khi x\'{a}c nh{\^{\d{a}}}n cầm m\'{a}u n{\^{\d{o}}}i soi th\`{a}nh c{\^o}ng nhằm giảm nguy cơ bi{{\'{\^{e}}}}n cố huy{{\'{\^{e}}}}t khối\unskip~\cite{2901310:34531814} .
+
+\textbf{\text{\DJ}iều tr\d{i} thuốc}
+
+Lo{\'e}t d{\d{a}} d\`{a}y li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n NSAID hoặc aspirin thường l\`{a}nh sau 4 \text{\dj}{{\'{\^{e}}}}n 8 tuần \text{\dj}iều tr\d{i} bằng PPI. Tỷ l{\^{\d{e}}} chữa l\`{a}nh sẽ cao hơn n{{\'{\^{e}}}}u ngừng \text{\dj}iều tr\d{i} bằng NSAID hoặc aspirin. Hi{\^{\d{e}}}n t{\d{a}}i, kh{\^o}ng c{\'{o}} sự \text{\dj}ồng thu{\^{\d{a}}}n về lợi \'{\i}ch l\^{a}m s\`{a}ng của vi{\^{\d{e}}}c \text{\dj}iều tr\d{i} duy tr\`{\i} bằng thuốc kh\'{a}ng ti{{\'{\^{e}}}}t acid ở những b{\^{\d{e}}}nh nh\^{a}n \text{\dj}{\~{a}} ngừng \text{\dj}iều tr\d{i} bằng NSAID hoặc aspirin sau khi l\`{a}nh v{{\'{\^{e}}}}t lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n NSAID\textbf{\ensuremath{^{1}}}.
+
+\textbf{Ph\`{o}ng ngừa} \textbf{\space }
+
+Chi{{\'{\^{e}}}}n lược dự ph\`{o}ng lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng cần dựa tr{\^{e}}n ph\^{a}n tầng nguy cơ, trong \text{\dj}{\'{o}} c\'{a}c y{{\'{\^{e}}}}u tố ch\'{\i}nh bao gồm tuổi {\textgreater}60, tiền sử lo{\'e}t (\text{\dj}ặc bi{\^{\d{e}}}t lo{\'e}t c{\'{o}} bi{{\'{\^{e}}}}n chứng xuất huy{{\'{\^{e}}}}t) v\`{a} sử d\d{u}ng \text{\dj}ồng thời nhiều thuốc l\`{a}m tổn thương ni{\^{e}}m m{\d{a}}c như NSAID, corticosteroid hoặc thuốc chống \text{\dj}{\^o}ng. Thuốc ức ch{{\'{\^{e}}}} bơm proton \text{\dj}ược khuy{{\'{\^{e}}}}n ngh\d{i} dự ph\`{o}ng thường quy cho b{\^{\d{e}}}nh nh\^{a}n cao tuổi \text{\dj}ang sử d\d{u}ng NSAID v\`{a} l\`{a} bắt bu{\^{\d{o}}}c ở những trường hợp d\`{u}ng li{\^{\d{e}}}u ph\'{a}p kh\'{a}ng k{{\'{\^{e}}}}t t{\^{\d{a}}}p tiểu cầu k{\'e}p (DAPT) hoặc phối hợp thuốc chống \text{\dj}{\^o}ng với NSAID/aspirin nhằm giảm nguy cơ xuất huy{{\'{\^{e}}}}t ti{\^{e}}u h{\'{o}}a tr{\^{e}}n. Vonoprazan (P-CAB) cho thấy hi{\^{\d{e}}}u quả dự ph\`{o}ng tương \text{\dj}ương PPI v\`{a} c{\'{o}} thể l\`{a} lựa ch\d{o}n thay th{{\'{\^{e}}}} trong dự ph\`{o}ng t\'{a}i ph\'{a}t lo{\'e}t do NSAID hoặc aspirin liều thấp\unskip~\cite{2901310:34531813,2901310:34531814,2901310:34531815} . Ngo\`{a}i ra, cần x{\'e}t nghi{\^{\d{e}}}m v\`{a} di{\^{\d{e}}}t trừ Helicobacter pylori trước khi khởi tr\d{i} NSAID hoặc aspirin d\`{a}i h{\d{a}}n \text{\dj}ể giảm nguy cơ lo{\'e}t v\`{a} bi{{\'{\^{e}}}}n chứng chảy m\'{a}u. Khi sử d\d{u}ng PPI k{\'e}o d\`{a}i ở người cao tuổi, cần lưu \'{y} tương t\'{a}c thuốc, \text{\dj}ặc bi{\^{\d{e}}}t giữa omeprazole v\`{a} clopidogrel qua CYP2C19, c{\~{u}}ng như gi\'{a}m s\'{a}t c\'{a}c t\'{a}c d\d{u}ng kh{\^o}ng mong muốn như t{\u{a}}ng nguy cơ g{\~{a}}y xương h{\^o}ng v\`{a} nhi{\~{\^e}}m Clostridioides difficile\unskip~\cite{2901310:34531807,2901310:34531808}   (\textbf{H\`{\i}nh 4}).
+\bgroup
+\fixFloatSize{images/21b96d08-b05f-46d2-b278-a27112337f5fimage4.png}
+\begin{figure*}[!htbp]\begin{mdframed}[backgroundcolor=unitednationsblue,hidealllines=true]
+\centering \makeatletter\IfFileExists{images/21b96d08-b05f-46d2-b278-a27112337f5fimage4.png}{\includegraphics{images/21b96d08-b05f-46d2-b278-a27112337f5fimage4.png}}{\includegraphics{21b96d08-b05f-46d2-b278-a27112337f5fimage4.png}}
+\makeatother 
+\caption{{\textbf{C\'{a}c chi{{\'{\^{e}}}}n lược ph\`{o}ng ngừa lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n NSAID hoặc aspirin ở b{\^{\d{e}}}nh nh\^{a}n cao tuổ}\textbf{i } \textbf{\ensuremath{^{1}}}\ensuremath{^{}}\textit{(\textbf{Nguồn}: Pilotto A FM. Upper Gastrointestinal Disorders. Hazzard's Geriatric Medicine and Gerontology, 8th edition, 2022. McGraw Hill)\ensuremath{^{1}}}}}
+\label{figure-9ad62b196fc342428475e53855dc76b5}\end{mdframed}
+\end{figure*}
+\egroup
+
+    
+\section*
+  {\textbf{X\'{A}C \text{\DJ}\d{I}NH BỆNH NH\^{A}N C{\'O} NGUY CƠ CAO (\text{\DJ}\'{A}NH GI\'{A} \text{\DJ}A CHIỀU):}}
+C\'{a}c chi{{\'{\^{e}}}}n lược hi{\^{\d{e}}}n t{\d{a}}i \text{\dj}ể giảm t\'{a}i ph\'{a}t lo{\'e}t v\`{a}/hoặc bi{{\'{\^{e}}}}n chứng \text{\dj}ược coi l\`{a} hi{\^{\d{e}}}u quả về mặt chi ph\'{\i} ở những b{\^{\d{e}}}nh nh\^{a}n c{\'{o}} nguy cơ cao. Do \text{\dj}{\'{o}}, rất quan tr\d{o}ng khi x\'{a}c \text{\dj}\d{i}nh những b{\^{\d{e}}}nh nh\^{a}n n\`{a}o c{\'{o}} nguy cơ cao b\d{i} lo{\'e}t d{\d{a}} d\`{a}y v\`{a} c\'{a}c bi{{\'{\^{e}}}}n chứng của n{\'{o}} khi h\d{o} \text{\dj}ược \text{\dj}iều tr\d{i} bằng c\'{a}c thuốc g\^{a}y tổn thương d{\d{a}} d\`{a}y. Tiền sử c{\'{o}} c\'{a}c tri{\^{\d{e}}}u chứng \text{\dj}ường ti{\^{e}}u h{\'{o}}a tr{\^{e}}n, lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng v\`{a}/hoặc chảy m\'{a}u, sự hi{\^{\d{e}}}n di{\^{\d{e}}}n của nhiều b{\^{\d{e}}}nh v\`{a} c\'{a}c thuốc d\`{u}ng \text{\dj}ồng thời, \text{\dj}ặc bi{\^{\d{e}}}t l\`{a} steroid \text{\dj}ường uống, thuốc kh\'{a}ng tiểu cầu, li{\^{\d{e}}}u ph\'{a}p chống huy{{\'{\^{e}}}}t khối (như heparin tr\d{o}ng lượng ph\^{a}n tử thấp) v\`{a} thuốc chống \text{\dj}{\^o}ng \text{\dj}ường uống l\`{a}m t{\u{a}}ng nguy cơ lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n NSAID v\`{a} c\'{a}c bi{{\'{\^{e}}}}n chứng của n{\'{o}}. Hơn nữa, suy giảm chức n{\u{a}}ng v\`{a} nh{\^{\d{a}}}n thức, suy dinh dưỡng, bất \text{\dj}{\^{\d{o}}}ng v\`{a} c\'{a}c y{{\'{\^{e}}}}u tố x{\~{a}} h{\^{\d{o}}}i, tức l\`{a} c\'{a}c y{{\'{\^{e}}}}u tố ch\'{\i}nh quy{{\'{\^{e}}}}t \text{\dj}\d{i}nh t\`{\i}nh tr{\d{a}}ng suy y{{\'{\^{e}}}}u \text{\dj}a chiều, c{\'{o}} thể ảnh hưởng ti{\^{e}}u cực \text{\dj}{{\'{\^{e}}}}n k{{\'{\^{e}}}}t quả v\`{a} di{\~{\^e}}n bi{{\'{\^{e}}}}n của lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng v\`{a} c\'{a}c bi{{\'{\^{e}}}}n chứng của lo{\'e}t. V\`{\i} v{\^{\d{a}}}y, \text{\dj}\'{a}nh gi\'{a} l{\~{a}}o khoa to\`{a}n di{\^{\d{e}}}n c{\'{o}} thể hữu \'{\i}ch trong vi{\^{\d{e}}}c \text{\dj}\'{a}nh gi\'{a} nguy cơ \text{\dj}a chiều ở b{\^{\d{e}}}nh nh\^{a}n cao tuổi\unskip~\cite{2901310:34531806} .
+
+\textbf{GIẢM LIỀU THUỐC V\`{A} SỬ D\d{U}NG NSAID \'{I}T T\'{A}C D\d{U}NG PH\d{U} TR\^{E}N \text{\DJ}ƯỜNG TI\^{E}U H{\'O}A} \textbf{\space }
+
+Nguy cơ lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng v\`{a} c\'{a}c bi{{\'{\^{e}}}}n chứng của n{\'{o}} dường như li{\^{e}}n quan trực ti{{\'{\^{e}}}}p \text{\dj}{{\'{\^{e}}}}n liều NSAID hoặc coxib \text{\dj}{\~{a}} cho. Nguy cơ tổn thương \text{\dj}ường ti{\^{e}}u h{\'{o}}a tr{\^{e}}n thấp hơn \text{\dj}{\~{a}} \text{\dj}ược b\'{a}o c\'{a}o với c\'{a}c thuốc NSAID c{\'{o}} thời gian b\'{a}n hủy trong huy{{\'{\^{e}}}}t tương ngắn so với những thuốc c{\'{o}} thời gian b\'{a}n hủy k{\'e}o d\`{a}i. Hơn nữa, c\'{a}c c{\^o}ng thức ph{\'{o}}ng th\'{\i}ch ch{\^{\d{a}}}m l\`{a}m t{\u{a}}ng nguy cơ bi{{\'{\^{e}}}}n chứng lo{\'e}t\unskip~\cite{2901310:34531806,2901310:34531817} .
+
+\textbf{KẾT HỢP \text{\DJ}IỀU TR\d{I} VỚI C\'{A}C THUỐC BẢO VỆ D\d{A} D\`{A}Y KH\'{A}C}
+
+Misoprostol v\`{a} PPI c{\'{o}} hi{\^{\d{e}}}u quả hơn thuốc ch\d{e}n th\d{u} thể H2 trong vi{\^{\d{e}}}c ng{\u{a}}n ngừa tổn thương nghi{\^{e}}m tr\d{o}ng ở d{\d{a}} d\`{a}y v\`{a} t\'{a} tr\`{a}ng. Tuy nhi{\^{e}}n, d\`{u}ng misoprostol với liều 200 \ensuremath{\mu}g x 4 lần/ng\`{a}y c{\'{o}} t\'{a}c d\d{u}ng ph\d{u} cao hơn, \text{\dj}ặc bi{\^{\d{e}}}t l\`{a} ti{\^{e}}u chảy khi so với PPI. PPI rất hi{\^{\d{e}}}u quả trong vi{\^{\d{e}}}c ng{\u{a}}n ngừa tổn thương d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng ở cả người cao tuổi sử d\d{u}ng NSAID ngắn h{\d{a}}n v\`{a} d\`{a}i h{\d{a}}n. Tương tự, PPI ng{\u{a}}n ngừa hi{\^{\d{e}}}u quả lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng v\`{a} c\'{a}c bi{{\'{\^{e}}}}n chứng của lo{\'e}t ở b{\^{\d{e}}}nh nh\^{a}n cao tuổi \text{\dj}ược \text{\dj}iều tr\d{i} bằng aspirin liều thấp, li{\^{\d{e}}}u ph\'{a}p kh\'{a}ng k{{\'{\^{e}}}}t t{\^{\d{a}}}p tiểu cầu v\`{a} kh{\^o}ng ph\d{u} thu{\^{\d{o}}}c v\`{a}o sự hi{\^{\d{e}}}n di{\^{\d{e}}}n của nhi{\~{\^e}}m H pylori\unskip~\cite{2901310:34531806,2901310:34531812} .
+
+\textbf{Ti{\^{\d{e}}}t trừ vi khuẩn H}\textbf{\space }\textbf{pylori} \textbf{. }
+
+Sử d\d{u}ng NSAID v\`{a} nhi{\~{\^e}}m H pylori l\`{a} những y{{\'{\^{e}}}}u tố nguy cơ \text{\dj}{\^{\d{o}}}c l{\^{\d{a}}}p g\^{a}y ra lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng v\`{a} xuất huy{{\'{\^{e}}}}t do lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng ở người cao tuổi. Ở những b{\^{\d{e}}}nh nh\^{a}n dương t\'{\i}nh với H pylori \text{\dj}ang bắt \text{\dj}ầu \text{\dj}iều tr\d{i} l\^{a}u d\`{a}i bằng NSAID, vi{\^{\d{e}}}c \text{\dj}iều tr\d{i} nhi{\~{\^e}}m H pylori l\`{a}m giảm nguy cơ mắc b{\^{\d{e}}}nh lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng trong 6 th\'{a}ng. Tuy nhi{\^{e}}n, ở những b{\^{\d{e}}}nh nh\^{a}n cao tuổi c{\'{o}} nguy cơ cao, vi{\^{\d{e}}}c sử d\d{u}ng PPI \text{\dj}ồng thời với NSAID l\`{a}m giảm sự xuất hi{\^{\d{e}}}n của tổn thương d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng cấp t\'{\i}nh v\`{a} m{\d{a}}n t\'{\i}nh li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n NSAID hi{\^{\d{e}}}u quả hơn so với vi{\^{\d{e}}}c chỉ lo{\d{a}}i trừ nhi{\~{\^e}}m H pylori. Hơn nữa, sau khi ti{\^{\d{e}}}t trừ H.pylori, \text{\dj}iều tr\d{i} duy tr\`{\i} bằng PPI c{\'{o}} hi{\^{\d{e}}}u quả trong vi{\^{\d{e}}}c ng{\u{a}}n ngừa chảy m\'{a}u do lo{\'e}t ở b{\^{\d{e}}}nh nh\^{a}n cao tuổi. Tất cả những ph\'{a}t hi{\^{\d{e}}}n n\`{a}y cho thấy vi{\^{\d{e}}}c ti{\^{\d{e}}}t trừ H pylori c{\'{o}} thể l\`{a} m{\^{\d{o}}}t chi{{\'{\^{e}}}}n lược hữu \'{\i}ch \text{\dj}ể ng{\u{a}}n ngừa lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n NSAID. Do \text{\dj}{\'{o}}, t\`{\i}nh tr{\d{a}}ng nhi{\~{\^e}}m H pylori n{\^{e}}n \text{\dj}ược x{\'e}t nghi{\^{\d{e}}}m v\`{a} \text{\dj}iều tr\d{i} ở người cao tuổi \text{\dj}ược dự t\'{\i}nh sẽ sử d\d{u}ng NSAID k{\'e}o d\`{a}i\unskip~\cite{2901310:34531806,2901310:34531814} .
+
+\textbf{Chương tr\`{\i}nh tư vấn gi\'{a}o d\d{u}c}
+
+M{\^{\d{o}}}t chi{{\'{\^{e}}}}n lược quan tr\d{o}ng trong vi{\^{\d{e}}}c ng{\u{a}}n ngừa c\'{a}c t\'{a}c d\d{u}ng ph\d{u} li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n NSAID l\`{a} ngừng \text{\dj}iều tr\d{i} NSAID. Th{\^{\d{a}}}t v{\^{\d{a}}}y, c\'{a}c nghi{\^{e}}n cứu từ Canada v\`{a} Hoa Kỳ \text{\dj}{\~{a}} b\'{a}o c\'{a}o ước t\'{\i}nh c{\'{o}} khoảng 37\% \text{\dj}{{\'{\^{e}}}}n hơn 50\% \text{\dj}ơn thuốc NSAID kh{\^o}ng cần thi{{\'{\^{e}}}}t, ngh{\~{\i}}a l\`{a} kh{\^o}ng ph\`{u} hợp, ở những b{\^{\d{e}}}nh nh\^{a}n cao tuổi b\d{i} vi{\^{e}}m xương khớp. C\'{a}c bi{\^{\d{e}}}n ph\'{a}p can thi{\^{\d{e}}}p t\'{\i}ch cực nhằm cải thi{\^{\d{e}}}n t\'{\i}nh ph\`{u} hợp của vi{\^{\d{e}}}c k{\^{e}} \text{\dj}ơn thuốc, \text{\dj}ặc bi{\^{\d{e}}}t ở người cao tuổi, \text{\dj}{\~{a}} l\`{a}m giảm vi{\^{\d{e}}}c k{\^{e}} \text{\dj}ơn thuốc NSAID. V\'{\i} d\d{u}, người ta thấy giảm \text{\dj}\'{a}ng kể tỷ l{\^{\d{e}}} t\'{a}i nh{\^{\d{a}}}p vi{\^{\d{e}}}n do lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng c{\~{u}}ng như tỷ l{\^{\d{e}}} tử vong trong v\`{o}ng 1 n{\u{a}}m ở những \text{\dj}ối tượng cao tuổi tham gia v\`{a}o m{\^{\d{o}}}t dự \'{a}n cải thi{\^{\d{e}}}n chất lượng ở Hoa Kỳ li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n vi{\^{\d{e}}}c tư vấn cho b{\^{\d{e}}}nh nh\^{a}n v\`{a} người ch{\u{a}}m s{\'{o}}c h\d{o} về \text{\dj}{\^{\d{o}}}c t\'{\i}nh của NSAID\unskip~\cite{2901310:34531806} .
+
+\textbf{Lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng kh{\^o}ng do NSAID, kh{\^o}ng do H}\textbf{\space }\textbf{pylori} \textbf{\space }
+
+Lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng kh{\^o}ng li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n NSAID v\`{a} Helicobacter pylori, c\`{o}n g\d{o}i l\`{a} lo{\'e}t v{\^o} c{\u{a}}n, \text{\dj}ang ng\`{a}y c\`{a}ng \text{\dj}ược ghi nh{\^{\d{a}}}n nhiều hơn trong bối cảnh tỷ l{\^{\d{e}}} nhi{\~{\^e}}m H. pylori giảm t{\d{a}}i nhiều khu vực tr{\^{e}}n th{{\'{\^{e}}}} giới. C\'{a}c nghi{\^{e}}n cứu gần \text{\dj}\^{a}y cho thấy lo{\'e}t v{\^o} c{\u{a}}n hi{\^{\d{e}}}n chi{{\'{\^{e}}}}m khoảng 12{\textendash}30\% tổng số trường hợp lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng, với tỷ l{\^{\d{e}}} cao hơn ở nh{\'{o}}m người cao tuổi\unskip~\cite{2901310:34531813,2901310:34531814} . Ở \text{\dj}ối tượng n\`{a}y, c\'{a}c y{{\'{\^{e}}}}u tố nguy cơ thường gặp bao gồm giới nam, thời gian nằm vi{\^{\d{e}}}n k{\'e}o d\`{a}i, t\`{\i}nh tr{\d{a}}ng \text{\dj}a b{\^{\d{e}}}nh l\'{y} v\`{a} vi{\^{\d{e}}}c sử d\d{u}ng \text{\dj}ồng thời nhiều lo{\d{a}}i thuốc, d\`{u} kh{\^o}ng thu{\^{\d{o}}}c nh{\'{o}}m NSAID\unskip~\cite{2901310:34531813,2901310:34531814} . \text{\DJ}\'{a}ng ch\'{u} \'{y}, lo{\'e}t v{\^o} c{\u{a}}n ở người cao tuổi thường khu tr\'{u} t{\d{a}}i hang v\d{i} v\`{a} c{\'{o}} xu hướng kh{\'{o}} l\`{a}nh hơn so với lo{\'e}t do c\'{a}c c{\u{a}}n nguy{\^{e}}n truyền thống.
+
+Về \text{\dj}iều tr\d{i}, li{\^{\d{e}}}u ph\'{a}p kh\'{a}ng ti{{\'{\^{e}}}}t axit vẫn l\`{a} nền tảng trong xử tr\'{\i} lo{\'e}t v{\^o} c{\u{a}}n. Thuốc ức ch{{\'{\^{e}}}} bơm proton liều chuẩn \text{\dj}ược khuy{{\'{\^{e}}}}n c\'{a}o sử d\d{u}ng \'{\i}t nhất 4 tuần \text{\dj}ối với lo{\'e}t t\'{a} tr\`{a}ng v\`{a} 8 tuần \text{\dj}ối với lo{\'e}t d{\d{a}} d\`{a}y \textbf{(H\`{\i}nh 5)}. Phần lớn b{\^{\d{e}}}nh nh\^{a}n \text{\dj}\'{a}p ứng tốt với ph\'{a}c \text{\dj}ồ n\`{a}y, v\`{a} hi{\^{\d{e}}}n kh{\^o}ng c{\'{o}} bằng chứng thuy{{\'{\^{e}}}}t ph\d{u}c cho thấy vi{\^{\d{e}}}c k{\'e}o d\`{a}i thời gian \text{\dj}iều tr\d{i} hoặc t{\u{a}}ng liều PPI mang l{\d{a}}i lợi \'{\i}ch bổ sung ở c\'{a}c trường hợp lo{\'e}t v{\^o} c{\u{a}}n kh{\^o}ng bi{{\'{\^{e}}}}n chứng\unskip~\cite{2901310:34531806,2901310:34531814,2901310:34531818} . Ở người cao tuổi kh{\^o}ng \text{\dj}\'{a}p ứng với \text{\dj}iều tr\d{i} PPI tối ưu, cần xem x{\'e}t c\'{a}c nguy{\^{e}}n nh\^{a}n tiềm ẩn như kh{\^o}ng tu\^{a}n thủ thuốc, t{\u{a}}ng ti{{\'{\^{e}}}}t axit, hoặc sử d\d{u}ng c\'{a}c thuốc g\^{a}y tổn thương ni{\^{e}}m m{\d{a}}c, \text{\dj}ồng thời thực hi{\^{\d{e}}}n c\'{a}c th{\u{a}}m d\`{o} chức n{\u{a}}ng d{\d{a}} d\`{a}y kh{\^o}ng x\^{a}m lấn v\`{a} chuyển kh\'{a}m chuy{\^{e}}n khoa ti{\^{e}}u h{\'{o}}a trong c\'{a}c trường hợp lo{\'e}t dai dẳng\unskip~\cite{2901310:34531813,2901310:34531814}  .
+
+Về ti{\^{e}}n lượng, lo{\'e}t v{\^o} c{\u{a}}n \text{\dj}ược ghi nh{\^{\d{a}}}n c{\'{o}} tỷ l{\^{\d{e}}} t\'{a}i ph\'{a}t v\`{a} tử vong cao hơn \text{\dj}\'{a}ng kể so với lo{\'e}t li{\^{e}}n quan H. pylori. \text{\DJ}ặc bi{\^{\d{e}}}t, ở b{\^{\d{e}}}nh nh\^{a}n c{\'{o}} bi{{\'{\^{e}}}}n chứng xuất huy{{\'{\^{e}}}}t, nguy cơ t\'{a}i chảy m\'{a}u trong v\`{o}ng m{\^{\d{o}}}t n{\u{a}}m dao \text{\dj}{\^{\d{o}}}ng từ 6\% \text{\dj}{{\'{\^{e}}}}n 13,4\% n{{\'{\^{e}}}}u kh{\^o}ng \text{\dj}ược \text{\dj}iều tr\d{i} duy tr\`{\i}. Do \text{\dj}{\'{o}}, c\'{a}c hướng dẫn hi{\^{\d{e}}}n nay khuy{{\'{\^{e}}}}n c\'{a}o duy tr\`{\i} PPI liều chuẩn hoặc thuốc \text{\dj}ối kh\'{a}ng th\d{u} thể H\ensuremath{_{\text{2}}} (H\ensuremath{_{2}}RA) l\^{a}u d\`{a}i ở b{\^{\d{e}}}nh nh\^{a}n lo{\'e}t v{\^o} c{\u{a}}n, nhất l\`{a} người cao tuổi, nhằm giảm nguy cơ t\'{a}i ph\'{a}t v\`{a} bi{{\'{\^{e}}}}n chứng tử vong\unskip~\cite{2901310:34531813,2901310:34531814} . Những dữ li{\^{\d{e}}}u n\`{a}y nhấn m{\d{a}}nh rằng lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng v{\^o} c{\u{a}}n kh{\^o}ng phải l\`{a} m{\^{\d{o}}}t thực thể l\`{a}nh t\'{\i}nh v\`{a} cần \text{\dj}ược ti{{\'{\^{e}}}}p c{\^{\d{a}}}n \text{\dj}iều tr\d{i} c{\~{u}}ng như theo d{\~{o}}i l\^{a}u d\`{a}i m{\^{\d{o}}}t c\'{a}ch th{\^{\d{a}}}n tr\d{o}ng, \text{\dj}ặc bi{\^{\d{e}}}t ở nh{\'{o}}m b{\^{\d{e}}}nh nh\^{a}n cao tuổi.
+
+
+\bgroup
+\fixFloatSize{images/21b96d08-b05f-46d2-b278-a27112337f5fimage5.png}
+\begin{figure*}[!htbp]\begin{mdframed}[backgroundcolor=unitednationsblue,hidealllines=true]
+\centering \makeatletter\IfFileExists{images/21b96d08-b05f-46d2-b278-a27112337f5fimage5.png}{\includegraphics{images/21b96d08-b05f-46d2-b278-a27112337f5fimage5.png}}{\includegraphics{21b96d08-b05f-46d2-b278-a27112337f5fimage5.png}}
+\makeatother 
+\caption{{\textbf{(A) }C\'{a}c ph\'{a}c \text{\dj}ồ \text{\dj}iều tr\d{i} cho người cao tuổi \text{\dj}ể \text{\dj}iều tr\d{i} nhi{\~{\^e}}m H pylori, dự ph\`{o}ng lo{\'e}t do stress, b{\^{\d{e}}}nh lo{\'e}t d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng v\`{a} bi{{\'{\^{e}}}}n chứng chảy m\'{a}u của n{\'{o}} \textbf{. (B) }C\'{a}c k{{\'{\^{e}}}} ho{\d{a}}ch tr\d{i} li{\^{\d{e}}}u cho người cao tuổi \text{\dj}ể \text{\dj}iều tr\d{i} v\`{a}/hoặc ng{\u{a}}n ngừa tổn thương d{\d{a}} d\`{a}y t\'{a} tr\`{a}ng li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n thuốc.} \textit{(\textbf{Nguồn}: Pilotto A FM. Upper Gastrointestinal Disorders. Hazzard's Geriatric Medicine and Gerontology, 8\ensuremath{^{th}} , 2022. McGraw Hill)\ensuremath{^{1}}}}
+\label{figure-44328051a28346b69c10ce34f7907798}\end{mdframed}
+\end{figure*}
+\egroup
+\textbf{An to\`{a}n thuốc v\`{a} t\'{a}c d\d{u}ng ph\d{u} của PPI}
+
+Vi{\^{\d{e}}}c sử d\d{u}ng thuốc ức ch{{\'{\^{e}}}} bơm proton k{\'e}o d\`{a}i ở người cao tuổi cần \text{\dj}ược c\^{a}n nhắc th{\^{\d{a}}}n tr\d{o}ng giữa lợi \'{\i}ch v\`{a} nguy cơ, do những thay \text{\dj}ổi sinh l\'{y} li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n l{\~{a}}o h{\'{o}}a v\`{a} nguy cơ tương t\'{a}c thuốc cao. T\`{\i}nh tr{\d{a}}ng giảm toan d{\d{a}} d\`{a}y do PPI c{\'{o}} thể l\`{a}m thay \text{\dj}ổi h{\^{\d{e}}} vi sinh \text{\dj}ường ru{\^{\d{o}}}t, từ \text{\dj}{\'{o}} l\`{a}m t{\u{a}}ng nguy cơ nhi{\~{\^e}}m Clostridioides difficile v\`{a} vi{\^{e}}m phổi mắc phải t{\d{a}}i c{\^{\d{o}}}ng \text{\dj}ồng. M{\^o}i trường d{\d{a}} d\`{a}y \'{\i}t acid c{\~{u}}ng l\`{a}m giảm khả n{\u{a}}ng hấp thu c\'{a}c dưỡng chất thi{{\'{\^{e}}}}t y{{\'{\^{e}}}}u như vitamin B12, sắt v\`{a} magie, dẫn \text{\dj}{{\'{\^{e}}}}n c\'{a}c h{\^{\d{a}}}u quả l\^{a}m s\`{a}ng bao gồm thi{{\'{\^{e}}}}u m\'{a}u v\`{a} rối lo{\d{a}}n thần kinh khi sử d\d{u}ng k{\'e}o d\`{a}i. Ngo\`{a}i ra, PPI c{\'{o}} thể l\`{a}m giảm hấp thu canxi v\`{a} ảnh hưởng \text{\dj}{{\'{\^{e}}}}n qu\'{a} tr\`{\i}nh chuyển h{\'{o}}a xương th{\^o}ng qua ức ch{{\'{\^{e}}}} t{{\'{\^{e}}}} b\`{a}o hủy xương hoặc g\^{a}y t{\u{a}}ng gastrin m\'{a}u thứ ph\'{a}t, l\`{a}m t{\u{a}}ng nguy cơ g{\~{a}}y xương h{\^o}ng v\`{a} c{\^{\d{o}}}t sống, \text{\dj}ặc bi{\^{\d{e}}}t ở người cao tuổi c{\'{o}} sẵn t\`{\i}nh tr{\d{a}}ng lo{\~{a}}ng xương hoặc suy nhược. B{\^{e}}n c{\d{a}}nh \text{\dj}{\'{o}}, cần lưu \'{y} c\'{a}c tương t\'{a}c thuốc quan tr\d{o}ng, nhất l\`{a} giữa omeprazole v\`{a} clopidogrel, do ức ch{{\'{\^{e}}}} enzyme CYP2C19 c{\'{o}} thể l\`{a}m giảm hi{\^{\d{e}}}u quả chống k{{\'{\^{e}}}}t t{\^{\d{a}}}p tiểu cầu v\`{a} l\`{a}m gia t{\u{a}}ng nguy cơ bi{{\'{\^{e}}}}n cố tim m{\d{a}}ch\unskip~\cite{2901310:34531807,2901310:34531808,2901310:34531813,2901310:34531814,2901310:34531815}\ensuremath{^{}}.
+
+\textbf{Theo d{\~{o}}i v\`{a} Dự ph\`{o}ng}
+
+Ở b{\^{\d{e}}}nh nh\^{a}n cao tuổi c{\'{o}} lo{\'e}t d{\d{a}} d\`{a}y, n{\^{\d{o}}}i soi kiểm tra l{\d{a}}i sau 4{\textendash}8 tuần l\`{a} bắt bu{\^{\d{o}}}c nhằm x\'{a}c nh{\^{\d{a}}}n sự l\`{a}nh ho\`{a}n to\`{a}n của ni{\^{e}}m m{\d{a}}c v\`{a} thực hi{\^{\d{e}}}n sinh thi{{\'{\^{e}}}}t bổ sung \text{\dj}ể lo{\d{a}}i trừ ung thư d{\d{a}} d\`{a}y thể lo{\'e}t, m{\^{\d{o}}}t thực thể c{\'{o}} h\`{\i}nh ảnh \text{\dj}{\d{a}}i thể d{\~{\^e}} nhầm với lo{\'e}t l\`{a}nh t\'{\i}nh v\`{a} thường gặp hơn ở nh{\'{o}}m tuổi n\`{a}y. Vi{\^{\d{e}}}c x\'{a}c nh{\^{\d{a}}}n di{\^{\d{e}}}t trừ Helicobacter pylori cần \text{\dj}ược ti{{\'{\^{e}}}}n h\`{a}nh \'{\i}t nhất 4 tuần sau khi k{{\'{\^{e}}}}t th\'{u}c kh\'{a}ng sinh v\`{a} 2 tuần sau khi ngừng PPI, ưu ti{\^{e}}n c\'{a}c phương ph\'{a}p kh{\^o}ng x\^{a}m lấn như test thở ur{\^{e}} hoặc x{\'e}t nghi{\^{\d{e}}}m kh\'{a}ng nguy{\^{e}}n ph\^{a}n nhờ \text{\dj}{\^{\d{o}}} ch\'{\i}nh x\'{a}c cao v\`{a} hi{\^{\d{e}}}u quả trong ph\`{o}ng ngừa t\'{a}i ph\'{a}t, \text{\dj}ặc bi{\^{\d{e}}}t l\`{a} xuất huy{{\'{\^{e}}}}t ti{\^{e}}u h{\'{o}}a tr{\^{e}}n. Về dự ph\`{o}ng l\^{a}u d\`{a}i, những b{\^{\d{e}}}nh nh\^{a}n c{\'{o}} tiền sử bi{{\'{\^{e}}}}n chứng lo{\'e}t nhưng vẫn bắt bu{\^{\d{o}}}c phải sử d\d{u}ng NSAID hoặc thuốc chống \text{\dj}{\^o}ng cần \text{\dj}ược phối hợp PPI dự ph\`{o}ng li{\^{e}}n t\d{u}c. Ở người cao tuổi suy nhược, vi{\^{\d{e}}}c \text{\dj}ơn giản h{\'{o}}a ph\'{a}c \text{\dj}ồ \text{\dj}iều tr\d{i} v\`{a} theo d{\~{o}}i chặt chẽ sự tu\^{a}n thủ \text{\dj}{\'{o}}ng vai tr\`{o} then chốt trong cải thi{\^{\d{e}}}n k{{\'{\^{e}}}}t quả l\^{a}m s\`{a}ng d\`{a}i h{\d{a}}n\unskip~\cite{2901310:34531807,2901310:34531808,2901310:34531813,2901310:34531815,2901310:34531814,2901310:34531818} .
+
+\textbf{DANH M\d{U}C C\'{A}C TỪ VIẾT TẮT}
+
+ASA: Acetylsalicylic acid
+
+COX-1: Cyclooxygenase-1
+
+HpSA:\textbf{\space }Helicobacter pylori stool antigen (X{\'e}t nghi{\^{\d{e}}}m t\`{\i}m kh\'{a}ng nguy{\^{e}}n Helicobacter pylori trong ph\^{a}n)
+
+Pylori: Helicobacter pylori
+
+ICU: Intensive Care Unit (ph\`{o}ng ch{\u{a}}m s{\'{o}}c t\'{\i}ch cực)
+
+IgG: Immunoglobulin G
+
+ITT: Intention-to-Treat (\'{Y} \text{\dj}\d{i}nh \text{\dj}iều tr\d{i})
+
+MALT: Mucosa-associated lymphoid tissue lymphoma (U~lympho m{\^o} b{\d{a}}ch huy{{\'{\^{e}}}}t li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n ni{\^{e}}m m{\d{a}}c)
+
+NSAID: Non-steroidal antiinflamatory drug (Thuốc chống vi{\^{e}}m kh{\^o}ng steroid)
+
+OR:\textbf{\space }Odds ratio (tỉ số ch{\^{e}}nh)
+
+OLGA: Operative Link on Gastritis Assessment
+
+OLGIM:  Operative Link on Gastric Intestinal Metaplasia
+
+PGI/PGII: Pepsinogen I/II
+
+PPI: Proton pump inhibitor (Thuốc~ức ch{{\'{\^{e}}}} bơm Proton)
+    
+\section*
+  {\textbf{XUNG \text{\DJ}ỘT LỢI \'{I}CH}}
+T\'{a}c giả cam k{{\'{\^{e}}}}t kh{\^o}ng c{\'{o}} m\^{a}u thuẫn quyền lợi v\`{a} kh{\^o}ng c{\'{o}} xung \text{\dj}{\^{\d{o}}}t lợi \'{\i}ch li{\^{e}}n quan \text{\dj}{{\'{\^{e}}}}n b\`{a}i tổng quan n\`{a}y 
+    
+\section*
+  {\textbf{\text{\DJ}{\'O}NG G{\'O}P CỦA C\'{A}C T\'{A}C GIẢ}}
+T\'{a}c giả H\`{a} V{\~{u}}: l{\^{e}}n \'{y} tưởng, vi{{\'{\^{e}}}}t v\`{a} chỉnh sửa bản thảo b\`{a}i b\'{a}o 
+
+T\'{a}c giả Vi{\^{e}}n Vinh Ph\'{u}: tham gia vi{{\'{\^{e}}}}t v\`{a} chỉnh sửa bản thảo b\`{a}i b\'{a}o
+
+
+\beforepage{\balance} 
+
+
+    
+{\sffamily\fontsize{7}{8}\selectfont 
+
+\bibliographystyle{vancouver_stdj}
+
+\bibliography{\jobname}}
+    
+
+\end{document}

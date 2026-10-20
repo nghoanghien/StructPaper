@@ -1,0 +1,28 @@
+﻿# ==========================================
+# struct-paper-backend .gitignore
+# ==========================================
+
+# Eclipse / VS Code Java build output
+bin/
+out/
+
+# Gradle build output & cache
+build/
+.gradle/
+
+# JVM crash & debug logs
+*.log
+hs_err_pid*.log
+replay_pid*.log
+
+# IDE & Editor files
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# OS files
+.DS_Store
+Thumbs.db
